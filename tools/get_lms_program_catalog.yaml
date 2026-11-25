@@ -1,0 +1,13 @@
+identity:
+  name: "get_lms_program_catalog"
+  author: hono
+  label:
+    en_US: "Get LMS Program Catalog"
+description:
+  human:
+    en_US: "Lists all learning programs in the organization's LMS catalog, detailing names and descriptions. Not user-specific."
+  llm: "Lists all learning programs in the organization's LMS catalog, detailing names and descriptions. Not user-specific."
+parameters: []
+extra:
+  python:
+    source: tools/get_lms_program_catalog.py

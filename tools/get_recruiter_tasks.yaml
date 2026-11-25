@@ -1,0 +1,31 @@
+identity:
+  name: "get_recruiter_tasks"
+  author: hono
+  label:
+    en_US: "Get Recruiter Tasks"
+description:
+  human:
+    en_US: "Displays the recruiter's work queue with candidates pending shortlisting and applications awaiting screening, grouped by job requisition."
+  llm: "Displays the recruiter's work queue with candidates pending shortlisting and applications awaiting screening, grouped by job requisition."
+parameters:
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number over the job groups, 1-based. Default 1."
+    llm_description: "Page number over the job groups, 1-based. Default 1."
+  - name: "pageSize"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "pageSize"
+    human_description:
+      en_US: "Job groups per page. Default 25, maximum 100."
+    llm_description: "Job groups per page. Default 25, maximum 100."
+extra:
+  python:
+    source: tools/get_recruiter_tasks.py

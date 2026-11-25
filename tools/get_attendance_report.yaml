@@ -1,0 +1,58 @@
+identity:
+  name: "get_attendance_report"
+  author: hono
+  label:
+    en_US: "Get Attendance Report"
+description:
+  human:
+    en_US: "Fetches attendance regularisation history and attendance summary for a date range, showing present/absent/half-day counts."
+  llm: "Fetches attendance regularisation history and attendance summary for a date range, showing present/absent/half-day counts."
+parameters:
+  - name: "dataSource"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "dataSource"
+    human_description:
+      en_US: "Whose data to show"
+    llm_description: "Whose data to show"
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "DO NOT pass for the user's own report - leave empty. Only pass when the user explicitly asks about a specific team member's attendance summary."
+    llm_description: "DO NOT pass for the user's own report - leave empty. Only pass when the user explicitly asks about a specific team member's attendance summary."
+  - name: "startDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "startDate"
+    human_description:
+      en_US: "Start date (YYYY-MM-DD)"
+    llm_description: "Start date (YYYY-MM-DD)"
+  - name: "endDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "endDate"
+    human_description:
+      en_US: "End date (YYYY-MM-DD)"
+    llm_description: "End date (YYYY-MM-DD)"
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number (default 1)"
+    llm_description: "Page number (default 1)"
+extra:
+  python:
+    source: tools/get_attendance_report.py

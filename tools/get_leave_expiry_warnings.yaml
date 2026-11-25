@@ -1,0 +1,22 @@
+identity:
+  name: "get_leave_expiry_warnings"
+  author: hono
+  label:
+    en_US: "Get Leave Expiry Warnings"
+description:
+  human:
+    en_US: "Lists the employee's leave balances that will expire soon, with days to be forfeited, cycle end date and whether encashment is possible. An optional day threshold narrows the window."
+  llm: "Lists the employee's leave balances that will expire soon, with days to be forfeited, cycle end date and whether encashment is possible. An optional day threshold narrows the window."
+parameters:
+  - name: "thresholdDays"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "thresholdDays"
+    human_description:
+      en_US: "Only warn about leaves whose cycle ends within this many days. Defaults to 60. Use 30 for tighter window, 90-180 for early planning."
+    llm_description: "Only warn about leaves whose cycle ends within this many days. Defaults to 60. Use 30 for tighter window, 90-180 for early planning."
+extra:
+  python:
+    source: tools/get_leave_expiry_warnings.py

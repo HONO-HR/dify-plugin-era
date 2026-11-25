@@ -1,0 +1,31 @@
+version: 0.1.0
+type: plugin
+author: hono
+name: hono_era
+label:
+  en_US: ERA by HONO
+description:
+  en_US: Read-only HONO HRMS tools for Dify. Leave, attendance, payroll summary, team, performance, learning, hiring and policies, using your own ERA access.
+icon: icon.png
+tags:
+  - business
+  - productivity
+created_at: "2026-11-25T00:00:00Z"
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+plugins:
+  tools:
+    - provider/hono_era.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+privacy: ./PRIVACY.md

@@ -1,0 +1,13 @@
+identity:
+  name: "get_my_referrals_status"
+  author: hono
+  label:
+    en_US: "Get My Referrals Status"
+description:
+  human:
+    en_US: "Lists candidates referred by the employee, detailing their hiring stage and the position referred for."
+  llm: "Lists candidates referred by the employee, detailing their hiring stage and the position referred for."
+parameters: []
+extra:
+  python:
+    source: tools/get_my_referrals_status.py

@@ -1,0 +1,58 @@
+identity:
+  name: "search_employees"
+  author: hono
+  label:
+    en_US: "Search Employees"
+description:
+  human:
+    en_US: "Find employees by name, email, or code with optional filters for department, location, designation, or manager. Returns employee details including position and joining date."
+  llm: "Find employees by name, email, or code with optional filters for department, location, designation, or manager. Returns employee details including position and joining date."
+parameters:
+  - name: "search"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "search"
+    human_description:
+      en_US: "PRIMARY: free-text match against employee name, email, or code. Use this for any \"find [person]\" / \"search for [name]\" / \"How about [name]\" query."
+    llm_description: "PRIMARY: free-text match against employee name, email, or code. Use this for any \"find [person]\" / \"search for [name]\" / \"How about [name]\" query."
+  - name: "department"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "department"
+    human_description:
+      en_US: "Optional structural filter - department/function name (e.g. \"Engineering\", \"Finance\"). Only set when user explicitly names the department."
+    llm_description: "Optional structural filter - department/function name (e.g. \"Engineering\", \"Finance\"). Only set when user explicitly names the department."
+  - name: "location"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "location"
+    human_description:
+      en_US: "Optional structural filter - business unit / location (e.g. \"India BU\", \"London\"). Only set when user explicitly names the location."
+    llm_description: "Optional structural filter - business unit / location (e.g. \"India BU\", \"London\"). Only set when user explicitly names the location."
+  - name: "designation"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "designation"
+    human_description:
+      en_US: "Optional structural filter - designation/job title (e.g. \"Software Engineer\", \"Manager\"). Only set when user explicitly names the title."
+    llm_description: "Optional structural filter - designation/job title (e.g. \"Software Engineer\", \"Manager\"). Only set when user explicitly names the title."
+  - name: "manager"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "manager"
+    human_description:
+      en_US: "Optional structural filter - reporting manager name (e.g. \"Alice Smith\"). Only set for who-reports-to-whom queries; never set this just because a name appears in the user's message."
+    llm_description: "Optional structural filter - reporting manager name (e.g. \"Alice Smith\"). Only set for who-reports-to-whom queries; never set this just because a name appears in the user's message."
+extra:
+  python:
+    source: tools/search_employees.py

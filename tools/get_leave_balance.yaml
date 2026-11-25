@@ -1,0 +1,22 @@
+identity:
+  name: "get_leave_balance"
+  author: hono
+  label:
+    en_US: "Get Leave Balance"
+description:
+  human:
+    en_US: "Returns the employee's leave balance per type, including credited, availed, pending, and remaining days."
+  llm: "Returns the employee's leave balance per type, including credited, availed, pending, and remaining days."
+parameters:
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "DO NOT pass for the user's own balance - leave empty. Only pass when the user explicitly asks about a specific team member's balance."
+    llm_description: "DO NOT pass for the user's own balance - leave empty. Only pass when the user explicitly asks about a specific team member's balance."
+extra:
+  python:
+    source: tools/get_leave_balance.py

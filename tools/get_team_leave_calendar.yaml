@@ -1,0 +1,49 @@
+identity:
+  name: "get_team_leave_calendar"
+  author: hono
+  label:
+    en_US: "Get Team Leave Calendar"
+description:
+  human:
+    en_US: "Shows a manager the leave schedule of direct reportees within a specified date range, including leave type and approval status."
+  llm: "Shows a manager the leave schedule of direct reportees within a specified date range, including leave type and approval status."
+parameters:
+  - name: "fromDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "fromDate"
+    human_description:
+      en_US: "First day, YYYY-MM-DD. Default: today."
+    llm_description: "First day, YYYY-MM-DD. Default: today."
+  - name: "toDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "toDate"
+    human_description:
+      en_US: "Last day, YYYY-MM-DD. Default: fromDate + 13 days. At most 31 days after fromDate is used."
+    llm_description: "Last day, YYYY-MM-DD. Default: fromDate + 13 days. At most 31 days after fromDate is used."
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page over direct reportees, 1-based. Default 1."
+    llm_description: "Page over direct reportees, 1-based. Default 1."
+  - name: "pageSize"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "pageSize"
+    human_description:
+      en_US: "Reportees per page. Default 25, maximum 50."
+    llm_description: "Reportees per page. Default 25, maximum 50."
+extra:
+  python:
+    source: tools/get_team_leave_calendar.py

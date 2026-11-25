@@ -1,0 +1,13 @@
+identity:
+  name: "get_referral_jobs"
+  author: hono
+  label:
+    en_US: "Get Referral Jobs"
+description:
+  human:
+    en_US: "Fetches open jobs available for employee referrals, detailing position titles, departments, locations, skills, experience, and qualifications."
+  llm: "Fetches open jobs available for employee referrals, detailing position titles, departments, locations, skills, experience, and qualifications."
+parameters: []
+extra:
+  python:
+    source: tools/get_referral_jobs.py

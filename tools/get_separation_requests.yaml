@@ -1,0 +1,40 @@
+identity:
+  name: "get_separation_requests"
+  author: hono
+  label:
+    en_US: "Get Separation Requests"
+description:
+  human:
+    en_US: "Fetches employee separation and exit requests by status or employee code, detailing reasons, dates, notice shortfall, status, and NDC closure."
+  llm: "Fetches employee separation and exit requests by status or employee code, detailing reasons, dates, notice shortfall, status, and NDC closure."
+parameters:
+  - name: "status"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "status"
+    human_description:
+      en_US: "Filter by status ID"
+    llm_description: "Filter by status ID"
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "Filter by employee code"
+    llm_description: "Filter by employee code"
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number (default 1)"
+    llm_description: "Page number (default 1)"
+extra:
+  python:
+    source: tools/get_separation_requests.py

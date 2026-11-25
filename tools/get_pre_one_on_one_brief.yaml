@@ -1,0 +1,22 @@
+identity:
+  name: "get_pre_one_on_one_brief"
+  author: hono
+  label:
+    en_US: "Get Pre One On One Brief"
+description:
+  human:
+    en_US: "Gives managers a snapshot of a reportee's profile, goals, attendance, and performance review with suggested talking points for 1:1 meetings."
+  llm: "Gives managers a snapshot of a reportee's profile, goals, attendance, and performance review with suggested talking points for 1:1 meetings."
+parameters:
+  - name: "empCode"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "The reportee's employee code (e.g., SMS1018). REQUIRED. The caller must be this person's direct manager. If the user names the reportee instead of giving an empCode, FIRST call search_employees or get_team_details to resolve the name to a code, THEN call this tool."
+    llm_description: "The reportee's employee code (e.g., SMS1018). REQUIRED. The caller must be this person's direct manager. If the user names the reportee instead of giving an empCode, FIRST call search_employees or get_team_details to resolve the name to a code, THEN call this tool."
+extra:
+  python:
+    source: tools/get_pre_one_on_one_brief.py

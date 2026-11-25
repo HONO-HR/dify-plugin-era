@@ -1,0 +1,31 @@
+identity:
+  name: "get_performance_review"
+  author: hono
+  label:
+    en_US: "Get Performance Review"
+description:
+  human:
+    en_US: "Fetches the employee's performance review for the active cycle, including goals, competencies, and overall score."
+  llm: "Fetches the employee's performance review for the active cycle, including goals, competencies, and overall score."
+parameters:
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "DO NOT pass for the user's own review - leave empty. Only pass when the user explicitly asks about a specific team member."
+    llm_description: "DO NOT pass for the user's own review - leave empty. Only pass when the user explicitly asks about a specific team member."
+  - name: "review"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "review"
+    human_description:
+      en_US: "Optional review cycle: \"A\" for Annual, \"H1\"/\"H2\" for halves, \"Q1\"/\"Q2\"/\"Q3\"/\"Q4\" for quarters. If omitted, auto-detects the currently active cycle from the PMS timeline."
+    llm_description: "Optional review cycle: \"A\" for Annual, \"H1\"/\"H2\" for halves, \"Q1\"/\"Q2\"/\"Q3\"/\"Q4\" for quarters. If omitted, auto-detects the currently active cycle from the PMS timeline."
+extra:
+  python:
+    source: tools/get_performance_review.py

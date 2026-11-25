@@ -1,0 +1,103 @@
+identity:
+  name: "get_open_positions"
+  author: hono
+  label:
+    en_US: "Get Open Positions"
+description:
+  human:
+    en_US: "Fetches job positions with recruiter assignments, skills, experience range, and timeline. Can filter by various criteria."
+  llm: "Fetches job positions with recruiter assignments, skills, experience range, and timeline. Can filter by various criteria."
+parameters:
+  - name: "search"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "search"
+    human_description:
+      en_US: "Search by position title, designation (e.g. \"deputy\", \"manager\"), position ID, department, or keyword"
+    llm_description: "Search by position title, designation (e.g. \"deputy\", \"manager\"), position ID, department, or keyword"
+  - name: "status"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "status"
+    human_description:
+      en_US: "Filter by status NAME: \"pending\", \"approved\", \"published\", \"closed\", \"rejected\", \"draft\", \"assigned\", \"hold\". Case-insensitive; matched against each tenant's configured status names. (Numeric statusId also accepted but discouraged - IDs vary per tenant.)"
+    llm_description: "Filter by status NAME: \"pending\", \"approved\", \"published\", \"closed\", \"rejected\", \"draft\", \"assigned\", \"hold\". Case-insensitive; matched against each tenant's configured status names. (Numeric statusId also accepted but discouraged - IDs vary per tenant.)"
+  - name: "department"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "department"
+    human_description:
+      en_US: "Filter by department name"
+    llm_description: "Filter by department name"
+  - name: "businessUnit"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "businessUnit"
+    human_description:
+      en_US: "Filter by business unit name"
+    llm_description: "Filter by business unit name"
+  - name: "state"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "state"
+    human_description:
+      en_US: "Filter by state name"
+    llm_description: "Filter by state name"
+  - name: "location"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "location"
+    human_description:
+      en_US: "Filter by location name"
+    llm_description: "Filter by location name"
+  - name: "sortBy"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "sortBy"
+    human_description:
+      en_US: "Sort field: \"created_on\" (default), \"target_hire_date\", \"status\", or \"age\" (oldest first - useful for staleness reports)"
+    llm_description: "Sort field: \"created_on\" (default), \"target_hire_date\", \"status\", or \"age\" (oldest first - useful for staleness reports)"
+  - name: "sortOrder"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "sortOrder"
+    human_description:
+      en_US: "\"desc\" (default) or \"asc\""
+    llm_description: "\"desc\" (default) or \"asc\""
+  - name: "minAgeDays"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "minAgeDays"
+    human_description:
+      en_US: "Only return positions where created_on is older than this many days. Use 30, 60, or 90 for CXO/HOD staleness queries (\"positions sitting open >30 days\"). Default = no minimum age."
+    llm_description: "Only return positions where created_on is older than this many days. Use 30, 60, or 90 for CXO/HOD staleness queries (\"positions sitting open >30 days\"). Default = no minimum age."
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number (1-based) over the filtered result set, 30 positions per page. Use when the user asks for \"the next page\" / \"more positions\" after seeing the first 30. Default: 1."
+    llm_description: "Page number (1-based) over the filtered result set, 30 positions per page. Use when the user asks for \"the next page\" / \"more positions\" after seeing the first 30. Default: 1."
+extra:
+  python:
+    source: tools/get_open_positions.py

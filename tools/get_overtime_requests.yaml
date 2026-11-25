@@ -1,0 +1,76 @@
+identity:
+  name: "get_overtime_requests"
+  author: hono
+  label:
+    en_US: "Get Overtime Requests"
+description:
+  human:
+    en_US: "Fetches overtime history for the user or details for a specific OT request. Returns OT date, hours, type, status, approvers, and shift times."
+  llm: "Fetches overtime history for the user or details for a specific OT request. Returns OT date, hours, type, status, approvers, and shift times."
+parameters:
+  - name: "otId"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "otId"
+    human_description:
+      en_US: "OT request ID to fetch full details. If provided, returns detail view instead of list."
+    llm_description: "OT request ID to fetch full details. If provided, returns detail view instead of list."
+  - name: "dataSource"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "dataSource"
+    human_description:
+      en_US: "Whose OT to show. \"myself\"=self, \"team\"=paginated team/for approval view with all details. Default: myself."
+    llm_description: "Whose OT to show. \"myself\"=self, \"team\"=paginated team/for approval view with all details. Default: myself."
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "Specific employee code to filter (for team view). Leave empty for self."
+    llm_description: "Specific employee code to filter (for team view). Leave empty for self."
+  - name: "status"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "status"
+    human_description:
+      en_US: "Filter by status"
+    llm_description: "Filter by status"
+  - name: "fromDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "fromDate"
+    human_description:
+      en_US: "Start date filter (YYYY-MM-DD)"
+    llm_description: "Start date filter (YYYY-MM-DD)"
+  - name: "toDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "toDate"
+    human_description:
+      en_US: "End date filter (YYYY-MM-DD)"
+    llm_description: "End date filter (YYYY-MM-DD)"
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number for team view (default 1). Max 10 records per page."
+    llm_description: "Page number for team view (default 1). Max 10 records per page."
+extra:
+  python:
+    source: tools/get_overtime_requests.py

@@ -1,0 +1,13 @@
+identity:
+  name: "get_feedback_360_pending"
+  author: hono
+  label:
+    en_US: "Get Feedback 360 Pending"
+description:
+  human:
+    en_US: "Lists 360 feedback requests awaiting the employee's response, detailing requester, template, review, user-type, and PMS cycle."
+  llm: "Lists 360 feedback requests awaiting the employee's response, detailing requester, template, review, user-type, and PMS cycle."
+parameters: []
+extra:
+  python:
+    source: tools/get_feedback_360_pending.py

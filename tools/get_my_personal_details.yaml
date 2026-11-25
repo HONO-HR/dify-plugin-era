@@ -1,0 +1,22 @@
+identity:
+  name: "get_my_personal_details"
+  author: hono
+  label:
+    en_US: "Get My Personal Details"
+description:
+  human:
+    en_US: "Fetches specific sections of the logged-in user's profile such as personal, contact, or family details. Self-service only."
+  llm: "Fetches specific sections of the logged-in user's profile such as personal, contact, or family details. Self-service only."
+parameters:
+  - name: "sections"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "sections"
+    human_description:
+      en_US: "Which section(s) to fetch - comma-separated list. Valid values: \"personal\", \"contact\", \"emergency\", \"family\", \"qualification\", \"nominee\", \"experience\". Default: \"personal\". Use multiple when the user asks broadly (\"show all my details\")."
+    llm_description: "Which section(s) to fetch - comma-separated list. Valid values: \"personal\", \"contact\", \"emergency\", \"family\", \"qualification\", \"nominee\", \"experience\". Default: \"personal\". Use multiple when the user asks broadly (\"show all my details\")."
+extra:
+  python:
+    source: tools/get_my_personal_details.py

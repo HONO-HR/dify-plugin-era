@@ -1,0 +1,31 @@
+identity:
+  name: "get_team_pms_status"
+  author: hono
+  label:
+    en_US: "Get Team PMS Status"
+description:
+  human:
+    en_US: "Checks a team member's status in a given performance cycle, including whether goal setting and review windows are open or complete. For managers."
+  llm: "Checks a team member's status in a given performance cycle, including whether goal setting and review windows are open or complete. For managers."
+parameters:
+  - name: "empCode"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "Employee code of the team member whose PMS status should be checked."
+    llm_description: "Employee code of the team member whose PMS status should be checked."
+  - name: "pmsId"
+    type: number
+    required: true
+    form: llm
+    label:
+      en_US: "pmsId"
+    human_description:
+      en_US: "PMS cycle/template ID to check."
+    llm_description: "PMS cycle/template ID to check."
+extra:
+  python:
+    source: tools/get_team_pms_status.py

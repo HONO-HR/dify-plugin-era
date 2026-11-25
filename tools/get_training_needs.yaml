@@ -1,0 +1,31 @@
+identity:
+  name: "get_training_needs"
+  author: hono
+  label:
+    en_US: "Get Training Needs"
+description:
+  human:
+    en_US: "Fetches the employee's training requests with request date, approval status, and pending duration. Self-service only."
+  llm: "Fetches the employee's training requests with request date, approval status, and pending duration. Self-service only."
+parameters:
+  - name: "search"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "search"
+    human_description:
+      en_US: "Search term to filter training programs"
+    llm_description: "Search term to filter training programs"
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number (default 1)"
+    llm_description: "Page number (default 1)"
+extra:
+  python:
+    source: tools/get_training_needs.py

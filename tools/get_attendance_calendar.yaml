@@ -1,0 +1,58 @@
+identity:
+  name: "get_attendance_calendar"
+  author: hono
+  label:
+    en_US: "Get Attendance Calendar"
+description:
+  human:
+    en_US: "Fetches attendance calendar for a specific employee or self over a date range, showing daily attendance with in/out times and status."
+  llm: "Fetches attendance calendar for a specific employee or self over a date range, showing daily attendance with in/out times and status."
+parameters:
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "Employee code of a TEAM MEMBER only. DO NOT pass this for the user's own attendance - leave it empty/null/undefined for self. Only provide an empCode when the user explicitly asks about someone else's attendance."
+    llm_description: "Employee code of a TEAM MEMBER only. DO NOT pass this for the user's own attendance - leave it empty/null/undefined for self. Only provide an empCode when the user explicitly asks about someone else's attendance."
+  - name: "startDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "startDate"
+    human_description:
+      en_US: "Start date YYYY-MM-DD (default: 1st of current month)"
+    llm_description: "Start date YYYY-MM-DD (default: 1st of current month)"
+  - name: "endDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "endDate"
+    human_description:
+      en_US: "End date YYYY-MM-DD (default: last day of current month)"
+    llm_description: "End date YYYY-MM-DD (default: last day of current month)"
+  - name: "month"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "month"
+    human_description:
+      en_US: "Month 1-12 (fallback if startDate/endDate not provided)"
+    llm_description: "Month 1-12 (fallback if startDate/endDate not provided)"
+  - name: "year"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "year"
+    human_description:
+      en_US: "Year (fallback if startDate/endDate not provided)"
+    llm_description: "Year (fallback if startDate/endDate not provided)"
+extra:
+  python:
+    source: tools/get_attendance_calendar.py

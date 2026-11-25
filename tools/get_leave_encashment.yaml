@@ -1,0 +1,49 @@
+identity:
+  name: "get_leave_encashment"
+  author: hono
+  label:
+    en_US: "Get Leave Encashment"
+description:
+  human:
+    en_US: "Fetches leave encashment requests, showing leave type, days encashed, and approval and payroll status."
+  llm: "Fetches leave encashment requests, showing leave type, days encashed, and approval and payroll status."
+parameters:
+  - name: "fromDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "fromDate"
+    human_description:
+      en_US: "Start date filter (YYYY-MM-DD)"
+    llm_description: "Start date filter (YYYY-MM-DD)"
+  - name: "toDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "toDate"
+    human_description:
+      en_US: "End date filter (YYYY-MM-DD)"
+    llm_description: "End date filter (YYYY-MM-DD)"
+  - name: "search"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "search"
+    human_description:
+      en_US: "Search by employee name or code"
+    llm_description: "Search by employee name or code"
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number (default 1). Max 10 records per page."
+    llm_description: "Page number (default 1). Max 10 records per page."
+extra:
+  python:
+    source: tools/get_leave_encashment.py

@@ -1,0 +1,40 @@
+identity:
+  name: "get_team_performance_summary"
+  author: hono
+  label:
+    en_US: "Get Team Performance Summary"
+description:
+  human:
+    en_US: "Provides performance scores and a dashboard for a manager's team, highlighting top and bottom performers."
+  llm: "Provides performance scores and a dashboard for a manager's team, highlighting top and bottom performers."
+parameters:
+  - name: "review"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "review"
+    human_description:
+      en_US: "Optional review cycle: \"A\" Annual, \"H1\"/\"H2\", \"Q1\"-\"Q4\". If omitted, auto-detects the active cycle from the PMS timeline (recommended for \"team performance\" without a stated quarter)."
+    llm_description: "Optional review cycle: \"A\" Annual, \"H1\"/\"H2\", \"Q1\"-\"Q4\". If omitted, auto-detects the active cycle from the PMS timeline (recommended for \"team performance\" without a stated quarter)."
+  - name: "topN"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "topN"
+    human_description:
+      en_US: "Number of top performers to highlight. Default 5. Max 10."
+    llm_description: "Number of top performers to highlight. Default 5. Max 10."
+  - name: "bottomN"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "bottomN"
+    human_description:
+      en_US: "Number of bottom performers to highlight. Default 3. Max 10."
+    llm_description: "Number of bottom performers to highlight. Default 3. Max 10."
+extra:
+  python:
+    source: tools/get_team_performance_summary.py

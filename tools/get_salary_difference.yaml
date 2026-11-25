@@ -1,0 +1,22 @@
+identity:
+  name: "get_salary_difference"
+  author: hono
+  label:
+    en_US: "Get Salary Difference"
+description:
+  human:
+    en_US: "Compares net pay and loss-of-pay days between the latest and previous full-pay months, providing a summary reason."
+  llm: "Compares net pay and loss-of-pay days between the latest and previous full-pay months, providing a summary reason."
+parameters:
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "DO NOT pass for the user's own salary difference - leave empty. Only pass when the user explicitly asks about a specific team member."
+    llm_description: "DO NOT pass for the user's own salary difference - leave empty. Only pass when the user explicitly asks about a specific team member."
+extra:
+  python:
+    source: tools/get_salary_difference.py

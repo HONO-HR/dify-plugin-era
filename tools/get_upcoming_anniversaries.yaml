@@ -1,0 +1,13 @@
+identity:
+  name: "get_upcoming_anniversaries"
+  author: hono
+  label:
+    en_US: "Get Upcoming Anniversaries"
+description:
+  human:
+    en_US: "Fetches upcoming birthdays and work anniversaries within one day either side of today. Returns name, designation, email, mobile, and years of service."
+  llm: "Fetches upcoming birthdays and work anniversaries within one day either side of today. Returns name, designation, email, mobile, and years of service."
+parameters: []
+extra:
+  python:
+    source: tools/get_upcoming_anniversaries.py

@@ -1,0 +1,22 @@
+identity:
+  name: "get_pms_cycle_timeline"
+  author: hono
+  label:
+    en_US: "Get PMS Cycle Timeline"
+description:
+  human:
+    en_US: "Returns the PMS cycle timeline for the employee's active template, detailing each phase with start and end dates, activity status, and days remaining."
+  llm: "Returns the PMS cycle timeline for the employee's active template, detailing each phase with start and end dates, activity status, and days remaining."
+parameters:
+  - name: "review"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "review"
+    human_description:
+      en_US: "Optional cycle code filter (\"A\", \"H1\", \"H2\", \"Q1\"-\"Q4\"). If omitted, returns ALL configured phases across every cycle in the template."
+    llm_description: "Optional cycle code filter (\"A\", \"H1\", \"H2\", \"Q1\"-\"Q4\"). If omitted, returns ALL configured phases across every cycle in the template."
+extra:
+  python:
+    source: tools/get_pms_cycle_timeline.py

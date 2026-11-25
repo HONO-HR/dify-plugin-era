@@ -1,0 +1,13 @@
+identity:
+  name: "fetch_pms_templates"
+  author: hono
+  label:
+    en_US: "Fetch PMS Templates"
+description:
+  human:
+    en_US: "Lists available PMS appraisal cycles/templates for the user."
+  llm: "Lists available PMS appraisal cycles/templates for the user."
+parameters: []
+extra:
+  python:
+    source: tools/fetch_pms_templates.py

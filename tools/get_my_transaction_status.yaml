@@ -1,0 +1,40 @@
+identity:
+  name: "get_my_transaction_status"
+  author: hono
+  label:
+    en_US: "Get My Transaction Status"
+description:
+  human:
+    en_US: "Shows status of the user's or a direct reportee's change requests in the approval workflow. Includes event, current level, and history."
+  llm: "Shows status of the user's or a direct reportee's change requests in the approval workflow. Includes event, current level, and history."
+parameters:
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "Leave empty for the user's own requests. Only a direct reportee's code when the user explicitly asks about that person."
+    llm_description: "Leave empty for the user's own requests. Only a direct reportee's code when the user explicitly asks about that person."
+  - name: "eventFilter"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "eventFilter"
+    human_description:
+      en_US: "Optional word to narrow by event name, e.g. \"promotion\", \"transfer\", \"confirmation\"."
+    llm_description: "Optional word to narrow by event name, e.g. \"promotion\", \"transfer\", \"confirmation\"."
+  - name: "includeCompleted"
+    type: boolean
+    required: false
+    form: llm
+    label:
+      en_US: "includeCompleted"
+    human_description:
+      en_US: "Default false: pending only. Set true to also list approved/rejected requests."
+    llm_description: "Default false: pending only. Set true to also list approved/rejected requests."
+extra:
+  python:
+    source: tools/get_my_transaction_status.py

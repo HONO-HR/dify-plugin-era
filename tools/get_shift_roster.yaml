@@ -1,0 +1,58 @@
+identity:
+  name: "get_shift_roster"
+  author: hono
+  label:
+    en_US: "Get Shift Roster"
+description:
+  human:
+    en_US: "Fetches monthly shift roster showing daily shift assignments, timings, weekly offs, and holidays for self or reportees."
+  llm: "Fetches monthly shift roster showing daily shift assignments, timings, weekly offs, and holidays for self or reportees."
+parameters:
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "DO NOT pass for the user's own roster or to see all reportees - leave empty. Only pass when the user explicitly asks about a specific other person's roster."
+    llm_description: "DO NOT pass for the user's own roster or to see all reportees - leave empty. Only pass when the user explicitly asks about a specific other person's roster."
+  - name: "month"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "month"
+    human_description:
+      en_US: "Month name (e.g. \"March\") or number (1-12). Default: current month."
+    llm_description: "Month name (e.g. \"March\") or number (1-12). Default: current month."
+  - name: "year"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "year"
+    human_description:
+      en_US: "Year (e.g. 2026). Default: current year."
+    llm_description: "Year (e.g. 2026). Default: current year."
+  - name: "limit"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "limit"
+    human_description:
+      en_US: "Number of employees per page when viewing reportees (default 5, max 20)."
+    llm_description: "Number of employees per page when viewing reportees (default 5, max 20)."
+  - name: "offset"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "offset"
+    human_description:
+      en_US: "Pagination offset (default 0)."
+    llm_description: "Pagination offset (default 0)."
+extra:
+  python:
+    source: tools/get_shift_roster.py

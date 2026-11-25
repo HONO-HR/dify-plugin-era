@@ -1,0 +1,13 @@
+identity:
+  name: "get_pending_evaluations"
+  author: hono
+  label:
+    en_US: "Get Pending Evaluations"
+description:
+  human:
+    en_US: "Lists candidates awaiting interview evaluation by the logged-in interviewer, including interview schedule details."
+  llm: "Lists candidates awaiting interview evaluation by the logged-in interviewer, including interview schedule details."
+parameters: []
+extra:
+  python:
+    source: tools/get_pending_evaluations.py

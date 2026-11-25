@@ -1,0 +1,22 @@
+identity:
+  name: "get_offer_status"
+  author: hono
+  label:
+    en_US: "Get Offer Status"
+description:
+  human:
+    en_US: "Lists offer approval requests pending the employee's action, detailing applied-job ID, salary, recruiter comments, and approval chain."
+  llm: "Lists offer approval requests pending the employee's action, detailing applied-job ID, salary, recruiter comments, and approval chain."
+parameters:
+  - name: "appliedJobId"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "appliedJobId"
+    human_description:
+      en_US: "Optional Applied-Jobs Id to narrow to a single candidate's offer chain."
+    llm_description: "Optional Applied-Jobs Id to narrow to a single candidate's offer chain."
+extra:
+  python:
+    source: tools/get_offer_status.py

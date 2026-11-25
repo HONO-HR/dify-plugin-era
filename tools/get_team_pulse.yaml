@@ -1,0 +1,13 @@
+identity:
+  name: "get_team_pulse"
+  author: hono
+  label:
+    en_US: "Get Team Pulse"
+description:
+  human:
+    en_US: "Provides today's team pulse for managers, including pending approvals, celebrations, and leave balance. No inputs required."
+  llm: "Provides today's team pulse for managers, including pending approvals, celebrations, and leave balance. No inputs required."
+parameters: []
+extra:
+  python:
+    source: tools/get_team_pulse.py

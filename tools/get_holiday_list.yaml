@@ -1,0 +1,31 @@
+identity:
+  name: "get_holiday_list"
+  author: hono
+  label:
+    en_US: "Get Holiday List"
+description:
+  human:
+    en_US: "Fetches the company holiday calendar for a specified year, including dates, descriptions, and mandatory/optional classification."
+  llm: "Fetches the company holiday calendar for a specified year, including dates, descriptions, and mandatory/optional classification."
+parameters:
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "Employee code (auto-detected from token if not provided)"
+    llm_description: "Employee code (auto-detected from token if not provided)"
+  - name: "year"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "year"
+    human_description:
+      en_US: "Year to fetch holidays for (default: current year)"
+    llm_description: "Year to fetch holidays for (default: current year)"
+extra:
+  python:
+    source: tools/get_holiday_list.py

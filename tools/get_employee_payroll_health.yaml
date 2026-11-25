@@ -1,0 +1,49 @@
+identity:
+  name: "get_employee_payroll_health"
+  author: hono
+  label:
+    en_US: "Get Employee Payroll Health"
+description:
+  human:
+    en_US: "Returns a detailed payroll snapshot for an employee, including pay summary, compliance state, and alerts. Defaults to the caller."
+  llm: "Returns a detailed payroll snapshot for an employee, including pay summary, compliance state, and alerts. Defaults to the caller."
+parameters:
+  - name: "month"
+    type: number
+    required: true
+    form: llm
+    label:
+      en_US: "month"
+    human_description:
+      en_US: "Month number 1-12 (e.g. 4 for April)."
+    llm_description: "Month number 1-12 (e.g. 4 for April)."
+  - name: "year"
+    type: number
+    required: true
+    form: llm
+    label:
+      en_US: "year"
+    human_description:
+      en_US: "Four-digit year, e.g. 2026."
+    llm_description: "Four-digit year, e.g. 2026."
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "Employee code to look up. OPTIONAL - defaults to the caller's empCode for self-service. Pass an empCode to look up another employee (processor / HR view)."
+    llm_description: "Employee code to look up. OPTIONAL - defaults to the caller's empCode for self-service. Pass an empCode to look up another employee (processor / HR view)."
+  - name: "payGroup"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "payGroup"
+    human_description:
+      en_US: "Pay group identifier. Defaults to \"all_employee\" for demo / standard tenants."
+    llm_description: "Pay group identifier. Defaults to \"all_employee\" for demo / standard tenants."
+extra:
+  python:
+    source: tools/get_employee_payroll_health.py

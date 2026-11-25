@@ -1,0 +1,49 @@
+identity:
+  name: "get_assigned_assets"
+  author: hono
+  label:
+    en_US: "Get Assigned Assets"
+description:
+  human:
+    en_US: "Fetches company assets assigned to employees, including asset details and status. No input needed for self."
+  llm: "Fetches company assets assigned to employees, including asset details and status. No input needed for self."
+parameters:
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "DO NOT pass for the user's own assets - leave empty. Only pass when looking up assets for a specific other employee."
+    llm_description: "DO NOT pass for the user's own assets - leave empty. Only pass when looking up assets for a specific other employee."
+  - name: "status"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "status"
+    human_description:
+      en_US: "Filter by status (1=Active, 2=Returned)"
+    llm_description: "Filter by status (1=Active, 2=Returned)"
+  - name: "type"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "type"
+    human_description:
+      en_US: "Filter by asset type ID"
+    llm_description: "Filter by asset type ID"
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number (default 1)"
+    llm_description: "Page number (default 1)"
+extra:
+  python:
+    source: tools/get_assigned_assets.py

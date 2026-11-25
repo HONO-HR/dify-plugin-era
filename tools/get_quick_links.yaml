@@ -1,0 +1,22 @@
+identity:
+  name: "get_quick_links"
+  author: hono
+  label:
+    en_US: "Get Quick Links"
+description:
+  human:
+    en_US: "Returns the quick links the HR administrator has configured for employees, such as the HR helpdesk or IT support, with titles and destinations."
+  llm: "Returns the quick links the HR administrator has configured for employees, such as the HR helpdesk or IT support, with titles and destinations."
+parameters:
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "Employee code (auto-detected from auth token)."
+    llm_description: "Employee code (auto-detected from auth token)."
+extra:
+  python:
+    source: tools/get_quick_links.py

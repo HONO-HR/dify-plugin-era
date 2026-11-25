@@ -1,0 +1,22 @@
+identity:
+  name: "get_lapsable_leave_exposure"
+  author: hono
+  label:
+    en_US: "Get Lapsable Leave Exposure"
+description:
+  human:
+    en_US: "Projects how much leave in a manager's team will lapse at cycle end, with the total exposure, the biggest contributors and possible actions. An optional cost per leave day prices it."
+  llm: "Projects how much leave in a manager's team will lapse at cycle end, with the total exposure, the biggest contributors and possible actions. An optional cost per leave day prices it."
+parameters:
+  - name: "costPerLeaveDay"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "costPerLeaveDay"
+    human_description:
+      en_US: "Flat INR value per leave day used to compute total exposure. Default 3000 for regular and 5000 for senior employees. Override if HR has a more accurate org-wide blended rate."
+    llm_description: "Flat INR value per leave day used to compute total exposure. Default 3000 for regular and 5000 for senior employees. Override if HR has a more accurate org-wide blended rate."
+extra:
+  python:
+    source: tools/get_lapsable_leave_exposure.py

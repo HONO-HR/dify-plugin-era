@@ -1,0 +1,31 @@
+identity:
+  name: "get_letters"
+  author: hono
+  label:
+    en_US: "Get Letters"
+description:
+  human:
+    en_US: "Fetches HR letters for an employee, including offer and appointment letters, with names, categories, types, and transaction statuses."
+  llm: "Fetches HR letters for an employee, including offer and appointment letters, with names, categories, types, and transaction statuses."
+parameters:
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "DO NOT pass for the user's own letters - leave empty. Only pass when looking up letters for a specific other employee."
+    llm_description: "DO NOT pass for the user's own letters - leave empty. Only pass when looking up letters for a specific other employee."
+  - name: "type"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "type"
+    human_description:
+      en_US: "View templates, employee letters, or transactions"
+    llm_description: "View templates, employee letters, or transactions"
+extra:
+  python:
+    source: tools/get_letters.py

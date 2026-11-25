@@ -1,0 +1,13 @@
+identity:
+  name: "get_onboarding_status"
+  author: hono
+  label:
+    en_US: "Get Onboarding Status"
+description:
+  human:
+    en_US: "Fetches the logged-in employee's onboarding journey progress, showing completed and upcoming steps."
+  llm: "Fetches the logged-in employee's onboarding journey progress, showing completed and upcoming steps."
+parameters: []
+extra:
+  python:
+    source: tools/get_onboarding_status.py

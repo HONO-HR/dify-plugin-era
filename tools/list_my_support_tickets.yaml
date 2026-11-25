@@ -1,0 +1,22 @@
+identity:
+  name: "list_my_support_tickets"
+  author: hono
+  label:
+    en_US: "List My Support Tickets"
+description:
+  human:
+    en_US: "Lists the user's own support tickets, showing up to 20 recent tickets with ID, title, status, priority, and created date."
+  llm: "Lists the user's own support tickets, showing up to 20 recent tickets with ID, title, status, priority, and created date."
+parameters:
+  - name: "status"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "status"
+    human_description:
+      en_US: "Filter to one of: open | in_progress | resolved | closed. Omit to return all."
+    llm_description: "Filter to one of: open | in_progress | resolved | closed. Omit to return all."
+extra:
+  python:
+    source: tools/list_my_support_tickets.py

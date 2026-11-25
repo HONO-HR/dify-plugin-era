@@ -1,0 +1,58 @@
+identity:
+  name: "get_team_360"
+  author: hono
+  label:
+    en_US: "Get Team 360"
+description:
+  human:
+    en_US: "Ranks a manager's team on performance, presence, and effort, providing a composite score and breakdown. For managers."
+  llm: "Ranks a manager's team on performance, presence, and effort, providing a composite score and breakdown. For managers."
+parameters:
+  - name: "review"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "review"
+    human_description:
+      en_US: "PMS review cycle: \"A\" Annual, \"H1\"/\"H2\", \"Q1\"-\"Q4\". Omit to auto-detect the active cycle."
+    llm_description: "PMS review cycle: \"A\" Annual, \"H1\"/\"H2\", \"Q1\"-\"Q4\". Omit to auto-detect the active cycle."
+  - name: "topN"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "topN"
+    human_description:
+      en_US: "How many ranked members to return. Default 10, max 50."
+    llm_description: "How many ranked members to return. Default 10, max 50."
+  - name: "performanceWeight"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "performanceWeight"
+    human_description:
+      en_US: "Weight for PMS performance (default 0.6). Weights are normalised to sum to 1."
+    llm_description: "Weight for PMS performance (default 0.6). Weights are normalised to sum to 1."
+  - name: "presenceWeight"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "presenceWeight"
+    human_description:
+      en_US: "Weight for presence = fewer leave days (default 0.25). Set 0 to ignore leave."
+    llm_description: "Weight for presence = fewer leave days (default 0.25). Set 0 to ignore leave."
+  - name: "effortWeight"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "effortWeight"
+    human_description:
+      en_US: "Weight for effort = overtime hours (default 0.15). Set 0 to ignore OT."
+    llm_description: "Weight for effort = overtime hours (default 0.15). Set 0 to ignore OT."
+extra:
+  python:
+    source: tools/get_team_360.py

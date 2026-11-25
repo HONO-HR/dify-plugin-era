@@ -1,0 +1,31 @@
+identity:
+  name: "get_travel_expenses"
+  author: hono
+  label:
+    en_US: "Get Travel Expenses"
+description:
+  human:
+    en_US: "Fetches travel and expense claims for self or team, showing amounts, status, and payment details. No required inputs."
+  llm: "Fetches travel and expense claims for self or team, showing amounts, status, and payment details. No required inputs."
+parameters:
+  - name: "forWhom"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "forWhom"
+    human_description:
+      en_US: "Filter: \"self\" for own expenses, \"team\" for team expenses"
+    llm_description: "Filter: \"self\" for own expenses, \"team\" for team expenses"
+  - name: "status"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "status"
+    human_description:
+      en_US: "Filter by status"
+    llm_description: "Filter by status"
+extra:
+  python:
+    source: tools/get_travel_expenses.py

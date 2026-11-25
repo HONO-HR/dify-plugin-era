@@ -1,0 +1,31 @@
+identity:
+  name: "get_team_attendance"
+  author: hono
+  label:
+    en_US: "Get Team Attendance"
+description:
+  human:
+    en_US: "Managers fetch today's team attendance with check-in/out times and status for all direct reportees."
+  llm: "Managers fetch today's team attendance with check-in/out times and status for all direct reportees."
+parameters:
+  - name: "date"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "date"
+    human_description:
+      en_US: "Date in YYYY-MM-DD format. Defaults to today."
+    llm_description: "Date in YYYY-MM-DD format. Defaults to today."
+  - name: "fullRoster"
+    type: boolean
+    required: false
+    form: llm
+    label:
+      en_US: "fullRoster"
+    human_description:
+      en_US: "Internal: when true, include the COMPLETE roster (all members, not the 5-row preview) under `roster`. Used by dashboards that must show every member; chat callers should not set this."
+    llm_description: "Internal: when true, include the COMPLETE roster (all members, not the 5-row preview) under `roster`. Used by dashboards that must show every member; chat callers should not set this."
+extra:
+  python:
+    source: tools/get_team_attendance.py

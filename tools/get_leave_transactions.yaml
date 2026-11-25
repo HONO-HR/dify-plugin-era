@@ -1,0 +1,58 @@
+identity:
+  name: "get_leave_transactions"
+  author: hono
+  label:
+    en_US: "Get Leave Transactions"
+description:
+  human:
+    en_US: "Fetches the user's leave application history, showing status and details of past leave applications."
+  llm: "Fetches the user's leave application history, showing status and details of past leave applications."
+parameters:
+  - name: "dataSource"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "dataSource"
+    human_description:
+      en_US: "Backend accepts only 0 or 1. Use 1 for normal queries; 0 only when explicitly needed."
+    llm_description: "Backend accepts only 0 or 1. Use 1 for normal queries; 0 only when explicitly needed."
+  - name: "status"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "status"
+    human_description:
+      en_US: "Filter: \"pending\", \"approved\", \"rejected\", \"cancelled\", or \"all\" (default: all)"
+    llm_description: "Filter: \"pending\", \"approved\", \"rejected\", \"cancelled\", or \"all\" (default: all)"
+  - name: "fromDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "fromDate"
+    human_description:
+      en_US: "Filter leaves from this date (YYYY-MM-DD). Default: 30 days ago. PASS THE FULL RANGE THE USER ASKED FOR - \"this year\" -> January 1 of the current year, \"last year\" -> January 1 of the previous year. Windows up to 365 days are supported (results are paginated)."
+    llm_description: "Filter leaves from this date (YYYY-MM-DD). Default: 30 days ago. PASS THE FULL RANGE THE USER ASKED FOR - \"this year\" -> January 1 of the current year, \"last year\" -> January 1 of the previous year. Windows up to 365 days are supported (results are paginated)."
+  - name: "toDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "toDate"
+    human_description:
+      en_US: "Filter leaves up to this date (YYYY-MM-DD). Default: today. Windows up to 365 days from fromDate are supported."
+    llm_description: "Filter leaves up to this date (YYYY-MM-DD). Default: today. Windows up to 365 days from fromDate are supported."
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number starting at 1 (default 1)"
+    llm_description: "Page number starting at 1 (default 1)"
+extra:
+  python:
+    source: tools/get_leave_transactions.py

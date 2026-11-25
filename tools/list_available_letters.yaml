@@ -1,0 +1,13 @@
+identity:
+  name: "list_available_letters"
+  author: hono
+  label:
+    en_US: "List Available Letters"
+description:
+  human:
+    en_US: "Lists letter templates available for the employee to request, showing eligibility and reasons for ineligibility."
+  llm: "Lists letter templates available for the employee to request, showing eligibility and reasons for ineligibility."
+parameters: []
+extra:
+  python:
+    source: tools/list_available_letters.py

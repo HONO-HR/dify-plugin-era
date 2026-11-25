@@ -1,0 +1,13 @@
+identity:
+  name: "get_my_employee_summary"
+  author: hono
+  label:
+    en_US: "Get My Employee Summary"
+description:
+  human:
+    en_US: "Provides a 360-degree summary of the logged-in employee, including personal details, qualifications, performance history, and pending approvals."
+  llm: "Provides a 360-degree summary of the logged-in employee, including personal details, qualifications, performance history, and pending approvals."
+parameters: []
+extra:
+  python:
+    source: tools/get_my_employee_summary.py

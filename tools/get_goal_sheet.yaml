@@ -1,0 +1,31 @@
+identity:
+  name: "get_goal_sheet"
+  author: hono
+  label:
+    en_US: "Get Goal Sheet"
+description:
+  human:
+    en_US: "Retrieves the employee's performance goal sheet with goals, KRAs, targets, and approval status. No input needed for self."
+  llm: "Retrieves the employee's performance goal sheet with goals, KRAs, targets, and approval status. No input needed for self."
+parameters:
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "DO NOT pass for the user's own goals - leave empty. Only pass when the user explicitly asks about a specific team member."
+    llm_description: "DO NOT pass for the user's own goals - leave empty. Only pass when the user explicitly asks about a specific team member."
+  - name: "review"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "review"
+    human_description:
+      en_US: "Optional review cycle: \"A\" for Annual, \"H1\"/\"H2\" for halves, \"Q1\"/\"Q2\"/\"Q3\"/\"Q4\" for quarters. If omitted, the action auto-detects the active cycle from the PMS timeline - recommended for \"show my goals\" style requests."
+    llm_description: "Optional review cycle: \"A\" for Annual, \"H1\"/\"H2\" for halves, \"Q1\"/\"Q2\"/\"Q3\"/\"Q4\" for quarters. If omitted, the action auto-detects the active cycle from the PMS timeline - recommended for \"show my goals\" style requests."
+extra:
+  python:
+    source: tools/get_goal_sheet.py

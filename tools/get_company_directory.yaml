@@ -1,0 +1,121 @@
+identity:
+  name: "get_company_directory"
+  author: hono
+  label:
+    en_US: "Get Company Directory"
+description:
+  human:
+    en_US: "Returns a paginated employee directory with contact details, filterable by location, department, designation and similar attributes."
+  llm: "Returns a paginated employee directory with contact details, filterable by location, department, designation and similar attributes."
+parameters:
+  - name: "search"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "search"
+    human_description:
+      en_US: "Search by employee name, email, department, or designation"
+    llm_description: "Search by employee name, email, department, or designation"
+  - name: "location"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "location"
+    human_description:
+      en_US: "Only employees at this location / city / unit (partial match, e.g. \"Bengaluru\")."
+    llm_description: "Only employees at this location / city / unit (partial match, e.g. \"Bengaluru\")."
+  - name: "department"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "department"
+    human_description:
+      en_US: "Only employees in this department or function (partial match)."
+    llm_description: "Only employees in this department or function (partial match)."
+  - name: "businessUnit"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "businessUnit"
+    human_description:
+      en_US: "Only employees in this business unit (some tenants call it Business Vertical)."
+    llm_description: "Only employees in this business unit (some tenants call it Business Vertical)."
+  - name: "designation"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "designation"
+    human_description:
+      en_US: "Only employees with this designation / job title (partial match)."
+    llm_description: "Only employees with this designation / job title (partial match)."
+  - name: "grade"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "grade"
+    human_description:
+      en_US: "Only employees in this grade or band."
+    llm_description: "Only employees in this grade or band."
+  - name: "division"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "division"
+    human_description:
+      en_US: "Only employees in this division."
+    llm_description: "Only employees in this division."
+  - name: "region"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "region"
+    human_description:
+      en_US: "Only employees in this region."
+    llm_description: "Only employees in this region."
+  - name: "company"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "company"
+    human_description:
+      en_US: "Only employees of this legal entity / company."
+    llm_description: "Only employees of this legal entity / company."
+  - name: "joinedWithinDays"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "joinedWithinDays"
+    human_description:
+      en_US: "Only employees who joined in the last N days, newest first. \"Joined recently\" means 90."
+    llm_description: "Only employees who joined in the last N days, newest first. \"Joined recently\" means 90."
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number starting at 1 (default 1)"
+    llm_description: "Page number starting at 1 (default 1)"
+  - name: "limit"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "limit"
+    human_description:
+      en_US: "Max results per page (default 10, max 25)"
+    llm_description: "Max results per page (default 10, max 25)"
+extra:
+  python:
+    source: tools/get_company_directory.py

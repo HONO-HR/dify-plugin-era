@@ -1,0 +1,13 @@
+identity:
+  name: "get_my_day"
+  author: hono
+  label:
+    en_US: "Get My Day"
+description:
+  human:
+    en_US: "Offers a day-at-a-glance view for the user, including celebrations, leave balance, next holiday, and pending approvals."
+  llm: "Offers a day-at-a-glance view for the user, including celebrations, leave balance, next holiday, and pending approvals."
+parameters: []
+extra:
+  python:
+    source: tools/get_my_day.py

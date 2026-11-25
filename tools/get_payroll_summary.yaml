@@ -1,0 +1,31 @@
+identity:
+  name: "get_payroll_summary"
+  author: hono
+  label:
+    en_US: "Get Payroll Summary"
+description:
+  human:
+    en_US: "Provides the employee's salary breakup for a given month, including earnings, deductions, and net pay. Defaults to current month."
+  llm: "Provides the employee's salary breakup for a given month, including earnings, deductions, and net pay. Defaults to current month."
+parameters:
+  - name: "payDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "payDate"
+    human_description:
+      en_US: "Pay date (any day inside the target month) in YYYY-MM-DD format. Defaults to today."
+    llm_description: "Pay date (any day inside the target month) in YYYY-MM-DD format. Defaults to today."
+  - name: "viewMode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "viewMode"
+    human_description:
+      en_US: "\"list\" (default) or \"pie\". Pass \"pie\" when the user asks for a chart / pie / donut visualisation. The user can still toggle in-card."
+    llm_description: "\"list\" (default) or \"pie\". Pass \"pie\" when the user asks for a chart / pie / donut visualisation. The user can still toggle in-card."
+extra:
+  python:
+    source: tools/get_payroll_summary.py

@@ -1,0 +1,31 @@
+identity:
+  name: "get_daily_punch_log"
+  author: hono
+  label:
+    en_US: "Get Daily Punch Log"
+description:
+  human:
+    en_US: "Fetches raw punch-in/out events for the user over a date range, showing time, direction, location, and approval status."
+  llm: "Fetches raw punch-in/out events for the user over a date range, showing time, direction, location, and approval status."
+parameters:
+  - name: "startDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "startDate"
+    human_description:
+      en_US: "Start date (YYYY-MM-DD). Default: 7 days ago."
+    llm_description: "Start date (YYYY-MM-DD). Default: 7 days ago."
+  - name: "endDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "endDate"
+    human_description:
+      en_US: "End date (YYYY-MM-DD). Default: today."
+    llm_description: "End date (YYYY-MM-DD). Default: today."
+extra:
+  python:
+    source: tools/get_daily_punch_log.py

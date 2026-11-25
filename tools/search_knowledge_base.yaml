@@ -1,0 +1,22 @@
+identity:
+  name: "search_knowledge_base"
+  author: hono
+  label:
+    en_US: "Search Knowledge Base"
+description:
+  human:
+    en_US: "Searches the company knowledge base for HR documents and uploaded datasets, returning relevant text excerpts with sources."
+  llm: "Searches the company knowledge base for HR documents and uploaded datasets, returning relevant text excerpts with sources."
+parameters:
+  - name: "query"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "query"
+    human_description:
+      en_US: "The user question to search the knowledge base for"
+    llm_description: "The user question to search the knowledge base for"
+extra:
+  python:
+    source: tools/search_knowledge_base.py

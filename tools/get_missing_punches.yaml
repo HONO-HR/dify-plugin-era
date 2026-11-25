@@ -1,0 +1,49 @@
+identity:
+  name: "get_missing_punches"
+  author: hono
+  label:
+    en_US: "Get Missing Punches"
+description:
+  human:
+    en_US: "Lists team members with unpaired attendance punches over the last few days (seven by default), with the affected dates. For managers."
+  llm: "Lists team members with unpaired attendance punches over the last few days (seven by default), with the affected dates. For managers."
+parameters:
+  - name: "days"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "days"
+    human_description:
+      en_US: "Window in days ending yesterday (default 7, max 31)."
+    llm_description: "Window in days ending yesterday (default 7, max 31)."
+  - name: "includeToday"
+    type: boolean
+    required: false
+    form: llm
+    label:
+      en_US: "includeToday"
+    human_description:
+      en_US: "Include today (default false, since today's punch-out is usually still pending)."
+    llm_description: "Include today (default false, since today's punch-out is usually still pending)."
+  - name: "includeNoPunch"
+    type: boolean
+    required: false
+    form: llm
+    label:
+      en_US: "includeNoPunch"
+    human_description:
+      en_US: "Also list employees with working days that have no punch at all (default false; they are only counted)."
+    llm_description: "Also list employees with working days that have no punch at all (default false; they are only counted)."
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Team page (50 members per page) for large teams."
+    llm_description: "Team page (50 members per page) for large teams."
+extra:
+  python:
+    source: tools/get_missing_punches.py

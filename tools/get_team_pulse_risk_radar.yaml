@@ -1,0 +1,13 @@
+identity:
+  name: "get_team_pulse_risk_radar"
+  author: hono
+  label:
+    en_US: "Get Team Pulse Risk Radar"
+description:
+  human:
+    en_US: "Ranks the teams under a manager by a health score and flags those needing attention, with the signals behind each score. For managers; no inputs."
+  llm: "Ranks the teams under a manager by a health score and flags those needing attention, with the signals behind each score. For managers; no inputs."
+parameters: []
+extra:
+  python:
+    source: tools/get_team_pulse_risk_radar.py

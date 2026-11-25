@@ -1,0 +1,22 @@
+identity:
+  name: "get_talent_profile"
+  author: hono
+  label:
+    en_US: "Get Talent Profile"
+description:
+  human:
+    en_US: "Fetches the complete talent profile of an employee, including performance, goals, and skills. Requires employee code."
+  llm: "Fetches the complete talent profile of an employee, including performance, goals, and skills. Requires employee code."
+parameters:
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "Employee code (e.g. IN0004). Omit for the current user's own talent profile."
+    llm_description: "Employee code (e.g. IN0004). Omit for the current user's own talent profile."
+extra:
+  python:
+    source: tools/get_talent_profile.py

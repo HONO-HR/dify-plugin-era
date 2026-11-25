@@ -1,0 +1,22 @@
+identity:
+  name: "get_pending_approvals"
+  author: hono
+  label:
+    en_US: "Get Pending Approvals"
+description:
+  human:
+    en_US: "Lists items pending the user's approval across various categories like leave, attendance, and overtime. No inputs required."
+  llm: "Lists items pending the user's approval across various categories like leave, attendance, and overtime. No inputs required."
+parameters:
+  - name: "empCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "Auto-detected from auth token. DO NOT pass this - leave empty. The system automatically identifies the approver."
+    llm_description: "Auto-detected from auth token. DO NOT pass this - leave empty. The system automatically identifies the approver."
+extra:
+  python:
+    source: tools/get_pending_approvals.py

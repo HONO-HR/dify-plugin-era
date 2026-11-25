@@ -1,0 +1,22 @@
+identity:
+  name: "get_applied_candidates"
+  author: hono
+  label:
+    en_US: "Get Applied Candidates"
+description:
+  human:
+    en_US: "Fetches candidates who applied for a specific job requisition, detailing their pipeline status. Requires RFR ID."
+  llm: "Fetches candidates who applied for a specific job requisition, detailing their pipeline status. Requires RFR ID."
+parameters:
+  - name: "rfrId"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "rfrId"
+    human_description:
+      en_US: "The RFR ID of the job requisition (e.g. \"3_RFR_242\"). Get this from get_open_positions."
+    llm_description: "The RFR ID of the job requisition (e.g. \"3_RFR_242\"). Get this from get_open_positions."
+extra:
+  python:
+    source: tools/get_applied_candidates.py

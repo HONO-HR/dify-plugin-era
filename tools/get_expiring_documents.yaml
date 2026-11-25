@@ -1,0 +1,40 @@
+identity:
+  name: "get_expiring_documents"
+  author: hono
+  label:
+    en_US: "Get Expiring Documents"
+description:
+  human:
+    en_US: "Lists employees whose passports or visas expire soon, with days left and masked document numbers; team scope by default, organisation-wide for HR."
+  llm: "Lists employees whose passports or visas expire soon, with days left and masked document numbers; team scope by default, organisation-wide for HR."
+parameters:
+  - name: "days"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "days"
+    human_description:
+      en_US: "Window in days from today (default 60, max 365)."
+    llm_description: "Window in days from today (default 60, max 365)."
+  - name: "scope"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "scope"
+    human_description:
+      en_US: "\"team\" (default) or \"org\" (HR, limited by the role's OU access in HONO)."
+    llm_description: "\"team\" (default) or \"org\" (HR, limited by the role's OU access in HONO)."
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Employee page (50 per page) for large populations."
+    llm_description: "Employee page (50 per page) for large populations."
+extra:
+  python:
+    source: tools/get_expiring_documents.py

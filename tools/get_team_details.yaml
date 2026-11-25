@@ -1,0 +1,31 @@
+identity:
+  name: "get_team_details"
+  author: hono
+  label:
+    en_US: "Get Team Details"
+description:
+  human:
+    en_US: "Lists the logged-in user's direct reportees with details like name, designation, and department. No inputs required."
+  llm: "Lists the logged-in user's direct reportees with details like name, designation, and department. No inputs required."
+parameters:
+  - name: "statusCode"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "statusCode"
+    human_description:
+      en_US: "Employee status code filter (default: \"01\" for active employees)"
+    llm_description: "Employee status code filter (default: \"01\" for active employees)"
+  - name: "includeConfirmation"
+    type: boolean
+    required: false
+    form: llm
+    label:
+      en_US: "includeConfirmation"
+    human_description:
+      en_US: "Set true when the user asks about confirmation / probation status of their team (e.g. \"how many of my reportees are confirmed\"). Looks up each member's confirmationStatus."
+    llm_description: "Set true when the user asks about confirmation / probation status of their team (e.g. \"how many of my reportees are confirmed\"). Looks up each member's confirmationStatus."
+extra:
+  python:
+    source: tools/get_team_details.py

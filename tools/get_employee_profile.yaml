@@ -1,0 +1,22 @@
+identity:
+  name: "get_employee_profile"
+  author: hono
+  label:
+    en_US: "Get Employee Profile"
+description:
+  human:
+    en_US: "Fetches the profile of a specific employee by employee code, including name, designation, department, location, reporting manager and joining date."
+  llm: "Fetches the profile of a specific employee by employee code, including name, designation, department, location, reporting manager and joining date."
+parameters:
+  - name: "empCode"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "empCode"
+    human_description:
+      en_US: "Employee code (e.g., IN0004). IMPORTANT: For \"my profile\" queries, use get_my_profile instead (NOT this action). Only use this action when the user asks about a specific OTHER person by name or code."
+    llm_description: "Employee code (e.g., IN0004). IMPORTANT: For \"my profile\" queries, use get_my_profile instead (NOT this action). Only use this action when the user asks about a specific OTHER person by name or code."
+extra:
+  python:
+    source: tools/get_employee_profile.py
