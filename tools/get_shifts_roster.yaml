@@ -1,0 +1,13 @@
+identity:
+  name: "get_shifts_roster"
+  author: hono
+  label:
+    en_US: "Get Shifts Roster"
+description:
+  human:
+    en_US: "Returns a list of shift master details without filters, used to manage shift rosters."
+  llm: "Returns a list of shift master details without filters, used to manage shift rosters."
+parameters: []
+extra:
+  python:
+    source: tools/get_shifts_roster.py

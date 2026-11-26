@@ -1,0 +1,31 @@
+identity:
+  name: "get_emp_details"
+  author: hono
+  label:
+    en_US: "Get Emp Details"
+description:
+  human:
+    en_US: "Returns detailed employee information for a specific PMS ID in performance management."
+  llm: "Returns detailed employee information for a specific PMS ID in performance management."
+parameters:
+  - name: "depthLimit"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "depthLimit"
+    human_description:
+      en_US: "depthLimit (Int)"
+    llm_description: "depthLimit (Int)"
+  - name: "PMSID"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "PMSID"
+    human_description:
+      en_US: "PMSID (Int)"
+    llm_description: "PMSID (Int)"
+extra:
+  python:
+    source: tools/get_emp_details.py

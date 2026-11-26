@@ -1,0 +1,22 @@
+identity:
+  name: "get_currency"
+  author: hono
+  label:
+    en_US: "Get Currency"
+description:
+  human:
+    en_US: "Fetches the company's currency configuration, including code, symbol, name, and display position."
+  llm: "Fetches the company's currency configuration, including code, symbol, name, and display position."
+parameters:
+  - name: "compCode"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "compCode"
+    human_description:
+      en_US: "Company code (default: 1 for primary company). Usually leave empty."
+    llm_description: "Company code (default: 1 for primary company). Usually leave empty."
+extra:
+  python:
+    source: tools/get_currency.py

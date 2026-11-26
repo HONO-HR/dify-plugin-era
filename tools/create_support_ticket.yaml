@@ -1,0 +1,58 @@
+identity:
+  name: "create_support_ticket"
+  author: hono
+  label:
+    en_US: "Create Support Ticket"
+description:
+  human:
+    en_US: "Files a support ticket in the helpdesk with a title, description, priority, and category. Returns the new ticket ID and status."
+  llm: "Files a support ticket in the helpdesk with a title, description, priority, and category. Returns the new ticket ID and status."
+parameters:
+  - name: "title"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "title"
+    human_description:
+      en_US: "Short one-line summary of the issue (max 500 chars). Phrase it from the user's perspective."
+    llm_description: "Short one-line summary of the issue (max 500 chars). Phrase it from the user's perspective."
+  - name: "description"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "description"
+    human_description:
+      en_US: "Optional longer description with steps, expected vs actual, links, dates, etc."
+    llm_description: "Optional longer description with steps, expected vs actual, links, dates, etc."
+  - name: "priority"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "priority"
+    human_description:
+      en_US: "\"low\" | \"medium\" (default) | \"high\" | \"critical\". Pick \"high\" or \"critical\" only when the user signals urgency (blocked from work, payroll/data loss, security)."
+    llm_description: "\"low\" | \"medium\" (default) | \"high\" | \"critical\". Pick \"high\" or \"critical\" only when the user signals urgency (blocked from work, payroll/data loss, security)."
+  - name: "category"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "category"
+    human_description:
+      en_US: "Optional free-text category hint (e.g. \"Payroll\", \"Leave\", \"Login\", \"Bug\"). Stored in error_context for triage."
+    llm_description: "Optional free-text category hint (e.g. \"Payroll\", \"Leave\", \"Login\", \"Bug\"). Stored in error_context for triage."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/create_support_ticket.py

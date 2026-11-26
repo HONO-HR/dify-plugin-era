@@ -1,0 +1,13 @@
+identity:
+  name: "get_rfr_published_on_referral_portal"
+  author: hono
+  label:
+    en_US: "Get RFR Published On Referral Portal"
+description:
+  human:
+    en_US: "Returns details of RFRs published on the referral portal; use to track referral job postings."
+  llm: "Returns details of RFRs published on the referral portal; use to track referral job postings."
+parameters: []
+extra:
+  python:
+    source: tools/get_rfr_published_on_referral_portal.py

@@ -1,0 +1,31 @@
+identity:
+  name: "get_shift_details"
+  author: hono
+  label:
+    en_US: "Get Shift Details"
+description:
+  human:
+    en_US: "Returns shift details for employees within a date range, used for attendance tracking."
+  llm: "Returns shift details for employees within a date range, used for attendance tracking."
+parameters:
+  - name: "startDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "startDate"
+    human_description:
+      en_US: "startDate (Date)"
+    llm_description: "startDate (Date)"
+  - name: "endDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "endDate"
+    human_description:
+      en_US: "endDate (Date)"
+    llm_description: "endDate (Date)"
+extra:
+  python:
+    source: tools/get_shift_details.py

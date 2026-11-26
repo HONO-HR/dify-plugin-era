@@ -1,0 +1,13 @@
+identity:
+  name: "get_all_pms_roles"
+  author: hono
+  label:
+    en_US: "Get All PMS Roles"
+description:
+  human:
+    en_US: "Returns a list of all PMS roles available in the performance module."
+  llm: "Returns a list of all PMS roles available in the performance module."
+parameters: []
+extra:
+  python:
+    source: tools/get_all_pms_roles.py

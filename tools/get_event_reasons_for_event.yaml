@@ -1,0 +1,13 @@
+identity:
+  name: "get_event_reasons_for_event"
+  author: hono
+  label:
+    en_US: "Get Event Reasons For Event"
+description:
+  human:
+    en_US: "Returns a list of event reasons for use in the Separation module."
+  llm: "Returns a list of event reasons for use in the Separation module."
+parameters: []
+extra:
+  python:
+    source: tools/get_event_reasons_for_event.py

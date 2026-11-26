@@ -1,0 +1,22 @@
+identity:
+  name: "get_client_projects"
+  author: hono
+  label:
+    en_US: "Get Client Projects"
+description:
+  human:
+    en_US: "Returns projects for clients filtered by status."
+  llm: "Returns projects for clients filtered by status."
+parameters:
+  - name: "Status"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "Status"
+    human_description:
+      en_US: "Status (Int)"
+    llm_description: "Status (Int)"
+extra:
+  python:
+    source: tools/get_client_projects.py

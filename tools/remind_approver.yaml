@@ -1,0 +1,49 @@
+identity:
+  name: "remind_approver"
+  author: hono
+  label:
+    en_US: "Remind Approver"
+description:
+  human:
+    en_US: "Sends a reminder to the approver of one of the employee's pending requests, identified by transaction id, with an optional note; goes through a confirmation step."
+  llm: "Sends a reminder to the approver of one of the employee's pending requests, identified by transaction id, with an optional note; goes through a confirmation step."
+parameters:
+  - name: "transactionId"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "transactionId"
+    human_description:
+      en_US: "The pending transaction id from get_my_transaction_status (details.transactions[].id)."
+    llm_description: "The pending transaction id from get_my_transaction_status (details.transactions[].id)."
+  - name: "note"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "note"
+    human_description:
+      en_US: "Optional one-line note from the user to include in the reminder."
+    llm_description: "Optional one-line note from the user to include in the reminder."
+  - name: "confirm"
+    type: boolean
+    required: false
+    form: llm
+    label:
+      en_US: "confirm"
+    human_description:
+      en_US: "true only after the user explicitly confirmed the preview in a later message."
+    llm_description: "true only after the user explicitly confirmed the preview in a later message."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/remind_approver.py

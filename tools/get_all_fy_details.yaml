@@ -1,0 +1,13 @@
+identity:
+  name: "get_all_fy_details"
+  author: hono
+  label:
+    en_US: "Get All Fy Details"
+description:
+  human:
+    en_US: "Returns financial year details for leave management, useful for tracking fiscal periods."
+  llm: "Returns financial year details for leave management, useful for tracking fiscal periods."
+parameters: []
+extra:
+  python:
+    source: tools/get_all_fy_details.py

@@ -1,0 +1,40 @@
+identity:
+  name: "cancel_od"
+  author: hono
+  label:
+    en_US: "Cancel OD"
+description:
+  human:
+    en_US: "Cancels an Out-on-Duty request for the employee using the OD request ID. Returns cancellation confirmation."
+  llm: "Cancels an Out-on-Duty request for the employee using the OD request ID. Returns cancellation confirmation."
+parameters:
+  - name: "outWorkId"
+    type: number
+    required: true
+    form: llm
+    label:
+      en_US: "outWorkId"
+    human_description:
+      en_US: "The OD request ID (outWorkId) to cancel"
+    llm_description: "The OD request ID (outWorkId) to cancel"
+  - name: "remark"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "remark"
+    human_description:
+      en_US: "Optional remark for cancellation"
+    llm_description: "Optional remark for cancellation"
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/cancel_od.py

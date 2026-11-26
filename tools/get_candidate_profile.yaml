@@ -1,0 +1,40 @@
+identity:
+  name: "get_candidate_profile"
+  author: hono
+  label:
+    en_US: "Get Candidate Profile"
+description:
+  human:
+    en_US: "Fetches detailed onboarding profiles of candidates, including offer status and reporting manager, by candidate ID or name."
+  llm: "Fetches detailed onboarding profiles of candidates, including offer status and reporting manager, by candidate ID or name."
+parameters:
+  - name: "candidateId"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "candidateId"
+    human_description:
+      en_US: "Candidate ID to fetch directly (if known)."
+    llm_description: "Candidate ID to fetch directly (if known)."
+  - name: "name"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "name"
+    human_description:
+      en_US: "Search by candidate name (first, last, or full name)."
+    llm_description: "Search by candidate name (first, last, or full name)."
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number for search results (default 1)."
+    llm_description: "Page number for search results (default 1)."
+extra:
+  python:
+    source: tools/get_candidate_profile.py

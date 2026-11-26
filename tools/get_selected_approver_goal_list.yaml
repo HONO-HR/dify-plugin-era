@@ -1,0 +1,13 @@
+identity:
+  name: "get_selected_approver_goal_list"
+  author: hono
+  label:
+    en_US: "Get Selected Approver Goal List"
+description:
+  human:
+    en_US: "Returns a list of approvers for goals, useful for tracking goal approval processes."
+  llm: "Returns a list of approvers for goals, useful for tracking goal approval processes."
+parameters: []
+extra:
+  python:
+    source: tools/get_selected_approver_goal_list.py

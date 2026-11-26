@@ -1,0 +1,58 @@
+identity:
+  name: "request_course_enrollment"
+  author: hono
+  label:
+    en_US: "Request Course Enrollment"
+description:
+  human:
+    en_US: "Submits a course enrollment request for the employee, going through the LMS approval workflow. Requires course details and confirmation."
+  llm: "Submits a course enrollment request for the employee, going through the LMS approval workflow. Requires course details and confirmation."
+parameters:
+  - name: "learning"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "learning"
+    human_description:
+      en_US: "The course/learning the user wants - name (e.g. \"Excel Basics\") or id from the chooser. Omit to list the catalog."
+    llm_description: "The course/learning the user wants - name (e.g. \"Excel Basics\") or id from the chooser. Omit to list the catalog."
+  - name: "program"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "program"
+    human_description:
+      en_US: "Program name or id - only needed when the response asks for a program choice (tenant runs program-based enrollment)."
+    llm_description: "Program name or id - only needed when the response asks for a program choice (tenant runs program-based enrollment)."
+  - name: "remarks"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "remarks"
+    human_description:
+      en_US: "Optional reason/remarks the user wants to attach to the request."
+    llm_description: "Optional reason/remarks the user wants to attach to the request."
+  - name: "confirm"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirm"
+    human_description:
+      en_US: "Pass \"true\" ONLY after the user explicitly confirmed the staged request. Anything else stages a confirmation."
+    llm_description: "Pass \"true\" ONLY after the user explicitly confirmed the staged request. Anything else stages a confirmation."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/request_course_enrollment.py

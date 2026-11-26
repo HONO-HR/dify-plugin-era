@@ -1,0 +1,13 @@
+identity:
+  name: "get_payhead_components"
+  author: hono
+  label:
+    en_US: "Get Payhead Components"
+description:
+  human:
+    en_US: "Returns all payhead components with details like name, type, and creation info."
+  llm: "Returns all payhead components with details like name, type, and creation info."
+parameters: []
+extra:
+  python:
+    source: tools/get_payhead_components.py

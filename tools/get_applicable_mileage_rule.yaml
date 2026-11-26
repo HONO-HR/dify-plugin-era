@@ -1,0 +1,13 @@
+identity:
+  name: "get_applicable_mileage_rule"
+  author: hono
+  label:
+    en_US: "Get Applicable Mileage Rule"
+description:
+  human:
+    en_US: "Returns applicable mileage expense rules without any filters."
+  llm: "Returns applicable mileage expense rules without any filters."
+parameters: []
+extra:
+  python:
+    source: tools/get_applicable_mileage_rule.py

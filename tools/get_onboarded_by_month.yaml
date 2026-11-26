@@ -1,0 +1,22 @@
+identity:
+  name: "get_onboarded_by_month"
+  author: hono
+  label:
+    en_US: "Get Onboarded By Month"
+description:
+  human:
+    en_US: "Provides a monthly breakdown of employees onboarded over the past specified months, defaulting to six months."
+  llm: "Provides a monthly breakdown of employees onboarded over the past specified months, defaulting to six months."
+parameters:
+  - name: "monthCount"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "monthCount"
+    human_description:
+      en_US: "Number of months to look back (1, 3, 6, 9, 12, 18, or 24). Default: 6."
+    llm_description: "Number of months to look back (1, 3, 6, 9, 12, 18, or 24). Default: 6."
+extra:
+  python:
+    source: tools/get_onboarded_by_month.py

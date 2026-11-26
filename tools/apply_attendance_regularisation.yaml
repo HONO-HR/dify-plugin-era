@@ -1,0 +1,112 @@
+identity:
+  name: "apply_attendance_regularisation"
+  author: hono
+  label:
+    en_US: "Apply Attendance Regularisation"
+description:
+  human:
+    en_US: "Submits an attendance regularisation request for the user to correct missed or wrong punches. Requires date, in-time, out-time, and reason code."
+  llm: "Submits an attendance regularisation request for the user to correct missed or wrong punches. Requires date, in-time, out-time, and reason code."
+parameters:
+  - name: "date"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "date"
+    human_description:
+      en_US: "Date for AR in STRICT YYYY-MM-DD format (year-month-day). The MIDDLE component is the MONTH (1-12), the LAST is the DAY (1-31). Example: April 9, 2026 = \"2026-04-09\" (NOT \"2026-09-04\" - that would be Sept 4). AR is for fixing PAST missed punches; never pick a date more than 30 days in the future. When the user names a month in words, look up its number explicitly (Jan=01, Feb=02, ... Apr=04, ... Sep=09, Oct=10)."
+    llm_description: "Date for AR in STRICT YYYY-MM-DD format (year-month-day). The MIDDLE component is the MONTH (1-12), the LAST is the DAY (1-31). Example: April 9, 2026 = \"2026-04-09\" (NOT \"2026-09-04\" - that would be Sept 4). AR is for fixing PAST missed punches; never pick a date more than 30 days in the future. When the user names a month in words, look up its number explicitly (Jan=01, Feb=02, ... Apr=04, ... Sep=09, Oct=10)."
+  - name: "inHour"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "inHour"
+    human_description:
+      en_US: "Punch-in hour (1-12, 12-hour format)"
+    llm_description: "Punch-in hour (1-12, 12-hour format)"
+  - name: "inMinute"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "inMinute"
+    human_description:
+      en_US: "Punch-in minute (00-59)"
+    llm_description: "Punch-in minute (00-59)"
+  - name: "inAP"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "inAP"
+    human_description:
+      en_US: "Punch-in AM or PM"
+    llm_description: "Punch-in AM or PM"
+  - name: "outHour"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "outHour"
+    human_description:
+      en_US: "Punch-out hour (1-12, 12-hour format)"
+    llm_description: "Punch-out hour (1-12, 12-hour format)"
+  - name: "outMinute"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "outMinute"
+    human_description:
+      en_US: "Punch-out minute (00-59)"
+    llm_description: "Punch-out minute (00-59)"
+  - name: "outAP"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "outAP"
+    human_description:
+      en_US: "Punch-out AM or PM"
+    llm_description: "Punch-out AM or PM"
+  - name: "reason"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "reason"
+    human_description:
+      en_US: "AR reason code (LOV_Value from the reasons list, e.g. \"1\")"
+    llm_description: "AR reason code (LOV_Value from the reasons list, e.g. \"1\")"
+  - name: "remarks"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "remarks"
+    human_description:
+      en_US: "Free-text remarks for the AR request"
+    llm_description: "Free-text remarks for the AR request"
+  - name: "forceCreate"
+    type: boolean
+    required: false
+    form: llm
+    label:
+      en_US: "forceCreate"
+    human_description:
+      en_US: "Set to true to skip duplicate-detection and submit anyway. Only set after the user has explicitly confirmed they want to submit despite an existing pending entry for the same date."
+    llm_description: "Set to true to skip duplicate-detection and submit anyway. Only set after the user has explicitly confirmed they want to submit despite an existing pending entry for the same date."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/apply_attendance_regularisation.py

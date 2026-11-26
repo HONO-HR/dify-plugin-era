@@ -1,0 +1,13 @@
+identity:
+  name: "get_program_head_count"
+  author: hono
+  label:
+    en_US: "Get Program Head Count"
+description:
+  human:
+    en_US: "Returns headcount information for all learning programs, useful for tracking program participation."
+  llm: "Returns headcount information for all learning programs, useful for tracking program participation."
+parameters: []
+extra:
+  python:
+    source: tools/get_program_head_count.py

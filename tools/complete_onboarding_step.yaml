@@ -1,0 +1,31 @@
+identity:
+  name: "complete_onboarding_step"
+  author: hono
+  label:
+    en_US: "Complete Onboarding Step"
+description:
+  human:
+    en_US: "Marks a specific onboarding step as complete for the logged-in employee, updating the journey state."
+  llm: "Marks a specific onboarding step as complete for the logged-in employee, updating the journey state."
+parameters:
+  - name: "stepId"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "stepId"
+    human_description:
+      en_US: "The step id to mark complete (matches the id field from get_onboarding_status, e.g. \"bank\")."
+    llm_description: "The step id to mark complete (matches the id field from get_onboarding_status, e.g. \"bank\")."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/complete_onboarding_step.py

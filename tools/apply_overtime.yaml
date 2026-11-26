@@ -1,0 +1,94 @@
+identity:
+  name: "apply_overtime"
+  author: hono
+  label:
+    en_US: "Apply Overtime"
+description:
+  human:
+    en_US: "Submits an overtime request for the employee with date, start/end time or hours, shift, reason, and remarks. Requests go for approval if flagged as a deviation."
+  llm: "Submits an overtime request for the employee with date, start/end time or hours, shift, reason, and remarks. Requests go for approval if flagged as a deviation."
+parameters:
+  - name: "date"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "date"
+    human_description:
+      en_US: "Overtime date, YYYY-MM-DD."
+    llm_description: "Overtime date, YYYY-MM-DD."
+  - name: "startTime"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "startTime"
+    human_description:
+      en_US: "OT start time, HH:mm (24h) or h:mm am/pm."
+    llm_description: "OT start time, HH:mm (24h) or h:mm am/pm."
+  - name: "endTime"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "endTime"
+    human_description:
+      en_US: "OT end time, HH:mm (24h) or h:mm am/pm."
+    llm_description: "OT end time, HH:mm (24h) or h:mm am/pm."
+  - name: "hours"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "hours"
+    human_description:
+      en_US: "Total OT duration as HH:mm (e.g. \"02:30\") - alternative to startTime/endTime when the user only states a duration."
+    llm_description: "Total OT duration as HH:mm (e.g. \"02:30\") - alternative to startTime/endTime when the user only states a duration."
+  - name: "shift"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "shift"
+    human_description:
+      en_US: "\"before\" = before shift start (Preshift), \"after\" = after shift end (Postshift). Defaults to after."
+    llm_description: "\"before\" = before shift start (Preshift), \"after\" = after shift end (Postshift). Defaults to after."
+  - name: "reason"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "reason"
+    human_description:
+      en_US: "OT reason - text from the reasons list (step 1 returns it)."
+    llm_description: "OT reason - text from the reasons list (step 1 returns it)."
+  - name: "remarks"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "remarks"
+    human_description:
+      en_US: "Optional remarks (mandatory for some tenants - the tool will say so)."
+    llm_description: "Optional remarks (mandatory for some tenants - the tool will say so)."
+  - name: "confirmDeviation"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmDeviation"
+    human_description:
+      en_US: "Pass \"true\" ONLY after the user explicitly confirms a deviation request."
+    llm_description: "Pass \"true\" ONLY after the user explicitly confirms a deviation request."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/apply_overtime.py

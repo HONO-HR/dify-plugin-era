@@ -1,0 +1,22 @@
+identity:
+  name: "get_working_day"
+  author: hono
+  label:
+    en_US: "Get Working Day"
+description:
+  human:
+    en_US: "Returns the working day status for a given date to check if it is a working day."
+  llm: "Returns the working day status for a given date to check if it is a working day."
+parameters:
+  - name: "date"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "date"
+    human_description:
+      en_US: "date (String)"
+    llm_description: "date (String)"
+extra:
+  python:
+    source: tools/get_working_day.py

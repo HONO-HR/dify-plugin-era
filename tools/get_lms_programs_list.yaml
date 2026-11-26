@@ -1,0 +1,40 @@
+identity:
+  name: "get_lms_programs_list"
+  author: hono
+  label:
+    en_US: "Get LMS Programs List"
+description:
+  human:
+    en_US: "Returns a list of LMS programs filtered by skills and attributes for performance enhancement."
+  llm: "Returns a list of LMS programs filtered by skills and attributes for performance enhancement."
+parameters:
+  - name: "skill"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "skill"
+    human_description:
+      en_US: "skill (String)"
+    llm_description: "skill (String)"
+  - name: "selectedLearningAttributes"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "selectedLearningAttributes"
+    human_description:
+      en_US: "selectedLearningAttributes (list of String) Pass as JSON text (a JSON array)."
+    llm_description: "selectedLearningAttributes (list of String) Pass as JSON text (a JSON array)."
+  - name: "selectedProgramAttributes"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "selectedProgramAttributes"
+    human_description:
+      en_US: "selectedProgramAttributes (list of String) Pass as JSON text (a JSON array)."
+    llm_description: "selectedProgramAttributes (list of String) Pass as JSON text (a JSON array)."
+extra:
+  python:
+    source: tools/get_lms_programs_list.py

@@ -1,0 +1,13 @@
+identity:
+  name: "get_employee_approved_details"
+  author: hono
+  label:
+    en_US: "Get Employee Approved Details"
+description:
+  human:
+    en_US: "Returns approved employee details by code, useful for verifying employee information and status."
+  llm: "Returns approved employee details by code, useful for verifying employee information and status."
+parameters: []
+extra:
+  python:
+    source: tools/get_employee_approved_details.py

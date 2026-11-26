@@ -1,0 +1,13 @@
+identity:
+  name: "get_pms_manager_stage_history"
+  author: hono
+  label:
+    en_US: "Get PMS Manager Stage History"
+description:
+  human:
+    en_US: "Returns the history of manager stages in PMS, including goal and employee codes, for performance tracking."
+  llm: "Returns the history of manager stages in PMS, including goal and employee codes, for performance tracking."
+parameters: []
+extra:
+  python:
+    source: tools/get_pms_manager_stage_history.py

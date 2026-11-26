@@ -1,0 +1,13 @@
+identity:
+  name: "get_ticket_catalogue"
+  author: hono
+  label:
+    en_US: "Get Ticket Catalogue"
+description:
+  human:
+    en_US: "Provides a catalogue of helpdesk HR tickets including creation and update details."
+  llm: "Provides a catalogue of helpdesk HR tickets including creation and update details."
+parameters: []
+extra:
+  python:
+    source: tools/get_ticket_catalogue.py

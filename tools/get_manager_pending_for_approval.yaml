@@ -1,0 +1,13 @@
+identity:
+  name: "get_manager_pending_for_approval"
+  author: hono
+  label:
+    en_US: "Get Manager Pending For Approval"
+description:
+  human:
+    en_US: "Returns pending approval requests for managers, useful for managing approvals."
+  llm: "Returns pending approval requests for managers, useful for managing approvals."
+parameters: []
+extra:
+  python:
+    source: tools/get_manager_pending_for_approval.py

@@ -1,0 +1,40 @@
+identity:
+  name: "compare_employees"
+  author: hono
+  label:
+    en_US: "Compare Employees"
+description:
+  human:
+    en_US: "Compares two employees side by side on performance rating, goals, attendance, leave balance, tenure and grade. Read-only; requires both employee codes."
+  llm: "Compares two employees side by side on performance rating, goals, attendance, leave balance, tenure and grade. Read-only; requires both employee codes."
+parameters:
+  - name: "empCodeA"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "empCodeA"
+    human_description:
+      en_US: "First employee code (resolve names via search_employees first)."
+    llm_description: "First employee code (resolve names via search_employees first)."
+  - name: "empCodeB"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "empCodeB"
+    human_description:
+      en_US: "Second employee code."
+    llm_description: "Second employee code."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/compare_employees.py

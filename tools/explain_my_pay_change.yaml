@@ -1,0 +1,31 @@
+identity:
+  name: "explain_my_pay_change"
+  author: hono
+  label:
+    en_US: "Explain My Pay Change"
+description:
+  human:
+    en_US: "Explains changes in the employee's net pay compared to the previous month, detailing earnings and deductions. For employees."
+  llm: "Explains changes in the employee's net pay compared to the previous month, detailing earnings and deductions. For employees."
+parameters:
+  - name: "payDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "payDate"
+    human_description:
+      en_US: "Any date (YYYY-MM-DD) inside the month to explain. Defaults to the latest processed pay month."
+    llm_description: "Any date (YYYY-MM-DD) inside the month to explain. Defaults to the latest processed pay month."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/explain_my_pay_change.py

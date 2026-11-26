@@ -1,0 +1,31 @@
+identity:
+  name: "get_pms_template_name"
+  author: hono
+  label:
+    en_US: "Get PMS Template Name"
+description:
+  human:
+    en_US: "Returns PMS template name and details for a specific ID, useful for identifying performance templates."
+  llm: "Returns PMS template name and details for a specific ID, useful for identifying performance templates."
+parameters:
+  - name: "Id"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "Id"
+    human_description:
+      en_US: "Id (Int)"
+    llm_description: "Id (Int)"
+  - name: "useManagerFlow"
+    type: boolean
+    required: false
+    form: llm
+    label:
+      en_US: "useManagerFlow"
+    human_description:
+      en_US: "useManagerFlow (Boolean)"
+    llm_description: "useManagerFlow (Boolean)"
+extra:
+  python:
+    source: tools/get_pms_template_name.py

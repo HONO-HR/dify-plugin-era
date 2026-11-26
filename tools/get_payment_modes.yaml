@@ -1,0 +1,22 @@
+identity:
+  name: "get_payment_modes"
+  author: hono
+  label:
+    en_US: "Get Payment Modes"
+description:
+  human:
+    en_US: "Returns available payment modes filtered by status, useful for understanding payment options."
+  llm: "Returns available payment modes filtered by status, useful for understanding payment options."
+parameters:
+  - name: "Status"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "Status"
+    human_description:
+      en_US: "Status (Int)"
+    llm_description: "Status (Int)"
+extra:
+  python:
+    source: tools/get_payment_modes.py

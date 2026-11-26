@@ -1,0 +1,67 @@
+identity:
+  name: "submit_reimbursement_claim"
+  author: hono
+  label:
+    en_US: "Submit Reimbursement Claim"
+description:
+  human:
+    en_US: "Prepares a reimbursement claim such as medical or fuel with pay head, bill details and particulars; final submission happens in HONO after confirmation."
+  llm: "Prepares a reimbursement claim such as medical or fuel with pay head, bill details and particulars; final submission happens in HONO after confirmation."
+parameters:
+  - name: "payheadName"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "payheadName"
+    human_description:
+      en_US: "Payhead name from the Step-1 list (e.g. \"Medical Reimbursement\"). Required to save."
+    llm_description: "Payhead name from the Step-1 list (e.g. \"Medical Reimbursement\"). Required to save."
+  - name: "billDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "billDate"
+    human_description:
+      en_US: "Bill date, STRICT YYYY-MM-DD. Must be within the current financial year and not in the future."
+    llm_description: "Bill date, STRICT YYYY-MM-DD. Must be within the current financial year and not in the future."
+  - name: "billNo"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "billNo"
+    human_description:
+      en_US: "Bill/invoice number as printed on the receipt."
+    llm_description: "Bill/invoice number as printed on the receipt."
+  - name: "billAmount"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "billAmount"
+    human_description:
+      en_US: "Bill amount (whole number, must not exceed the payhead's remaining balance)."
+    llm_description: "Bill amount (whole number, must not exceed the payhead's remaining balance)."
+  - name: "particulars"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "particulars"
+    human_description:
+      en_US: "What the bill is for (e.g. \"pharmacy purchase for self\")."
+    llm_description: "What the bill is for (e.g. \"pharmacy purchase for self\")."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/submit_reimbursement_claim.py

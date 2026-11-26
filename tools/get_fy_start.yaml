@@ -1,0 +1,22 @@
+identity:
+  name: "get_fy_start"
+  author: hono
+  label:
+    en_US: "Get Fy Start"
+description:
+  human:
+    en_US: "Returns the start date of a financial year, useful for fiscal planning."
+  llm: "Returns the start date of a financial year, useful for fiscal planning."
+parameters:
+  - name: "id"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "id"
+    human_description:
+      en_US: "id (Int)"
+    llm_description: "id (Int)"
+extra:
+  python:
+    source: tools/get_fy_start.py

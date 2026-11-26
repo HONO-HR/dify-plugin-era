@@ -1,0 +1,13 @@
+identity:
+  name: "get_goal_id_according_to_emp_code"
+  author: hono
+  label:
+    en_US: "Get Goal ID According To Emp Code"
+description:
+  human:
+    en_US: "Retrieves goal ID data using an employee code."
+  llm: "Retrieves goal ID data using an employee code."
+parameters: []
+extra:
+  python:
+    source: tools/get_goal_id_according_to_emp_code.py

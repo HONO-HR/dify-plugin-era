@@ -1,0 +1,13 @@
+identity:
+  name: "get_leave_masters"
+  author: hono
+  label:
+    en_US: "Get Leave Masters"
+description:
+  human:
+    en_US: "Returns all leave master configurations, useful for understanding available leave types and their properties."
+  llm: "Returns all leave master configurations, useful for understanding available leave types and their properties."
+parameters: []
+extra:
+  python:
+    source: tools/get_leave_masters.py

@@ -1,0 +1,13 @@
+identity:
+  name: "get_pms_performance_plan"
+  author: hono
+  label:
+    en_US: "Get PMS Performance Plan"
+description:
+  human:
+    en_US: "Returns performance plan details, useful for managing performance plans."
+  llm: "Returns performance plan details, useful for managing performance plans."
+parameters: []
+extra:
+  python:
+    source: tools/get_pms_performance_plan.py

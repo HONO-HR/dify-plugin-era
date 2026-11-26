@@ -1,0 +1,31 @@
+identity:
+  name: "get_cascade_from_ly"
+  author: hono
+  label:
+    en_US: "Get Cascade From Ly"
+description:
+  human:
+    en_US: "Returns cascaded goals from last year for a specific PMS template and employee code."
+  llm: "Returns cascaded goals from last year for a specific PMS template and employee code."
+parameters:
+  - name: "PMS_TemplateID"
+    type: number
+    required: true
+    form: llm
+    label:
+      en_US: "PMS_TemplateID"
+    human_description:
+      en_US: "PMS_TemplateID (Int)"
+    llm_description: "PMS_TemplateID (Int)"
+  - name: "Review"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "Review"
+    human_description:
+      en_US: "Review (String)"
+    llm_description: "Review (String)"
+extra:
+  python:
+    source: tools/get_cascade_from_ly.py

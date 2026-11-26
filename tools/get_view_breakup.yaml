@@ -1,0 +1,22 @@
+identity:
+  name: "get_view_breakup"
+  author: hono
+  label:
+    en_US: "Get View Breakup"
+description:
+  human:
+    en_US: "Provides a detailed breakup of employee ratings and comments, useful for performance review analysis."
+  llm: "Provides a detailed breakup of employee ratings and comments, useful for performance review analysis."
+parameters:
+  - name: "PMSID"
+    type: number
+    required: true
+    form: llm
+    label:
+      en_US: "PMSID"
+    human_description:
+      en_US: "PMSID (Int)"
+    llm_description: "PMSID (Int)"
+extra:
+  python:
+    source: tools/get_view_breakup.py

@@ -1,0 +1,13 @@
+identity:
+  name: "get_employee_compoff_leave_auto_apply_list"
+  author: hono
+  label:
+    en_US: "Get Employee Compoff Leave Auto Apply List"
+description:
+  human:
+    en_US: "Returns a list of auto-applied comp-off leaves for an employee, useful for tracking automatic leave applications."
+  llm: "Returns a list of auto-applied comp-off leaves for an employee, useful for tracking automatic leave applications."
+parameters: []
+extra:
+  python:
+    source: tools/get_employee_compoff_leave_auto_apply_list.py

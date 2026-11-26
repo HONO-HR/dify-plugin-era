@@ -1,0 +1,40 @@
+identity:
+  name: "get_pending_for_approval_users"
+  author: hono
+  label:
+    en_US: "Get Pending For Approval Users"
+description:
+  human:
+    en_US: "Returns users with pending approval requests, useful for tracking approval status."
+  llm: "Returns users with pending approval requests, useful for tracking approval status."
+parameters:
+  - name: "status"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "status"
+    human_description:
+      en_US: "status (Int)"
+    llm_description: "status (Int)"
+  - name: "selectedRFRAttributes"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "selectedRFRAttributes"
+    human_description:
+      en_US: "selectedRFRAttributes (list of String) Pass as JSON text (a JSON array)."
+    llm_description: "selectedRFRAttributes (list of String) Pass as JSON text (a JSON array)."
+  - name: "selectedPositionAttributes"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "selectedPositionAttributes"
+    human_description:
+      en_US: "selectedPositionAttributes (list of String) Pass as JSON text (a JSON array)."
+    llm_description: "selectedPositionAttributes (list of String) Pass as JSON text (a JSON array)."
+extra:
+  python:
+    source: tools/get_pending_for_approval_users.py

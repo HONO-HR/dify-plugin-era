@@ -1,0 +1,130 @@
+identity:
+  name: "approve_reject_requests"
+  author: hono
+  label:
+    en_US: "Approve Reject Requests"
+description:
+  human:
+    en_US: "Approves or rejects pending leave, attendance-regularisation or out-on-duty requests as the manager, by request ids or filters; goes through a confirmation step."
+  llm: "Approves or rejects pending leave, attendance-regularisation or out-on-duty requests as the manager, by request ids or filters; goes through a confirmation step."
+parameters:
+  - name: "module"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "module"
+    human_description:
+      en_US: "Module to act on. Canonical codes: \"leave\", \"ar\", \"od\". The handler ALSO accepts the natural-language synonyms that `get_pending_approvals` emits - pass any of: * \"leave\" / \"leaves\" / \"vacation\" / \"pto\" / \"time off\" -> leave * \"ar\" / \"attendance\" / \"attendance regularisation\" / \"attendance regularization\" / \"mark past attendance\" / \"past attendance\" / \"punch\" -> ar (Attendance Regularisation) * \"od\" / \"outOnDuty\" / \"out_on_duty\" / \"out on duty\" / \"outduty\" / \"ood\" -> od (Out On Duty) NOTE: get_pending_approvals emits `module: \"attendance\"` and `module: \"outOnDuty\"` directly - pass either of those verbatim and this tool normalises them."
+    llm_description: "Module to act on. Canonical codes: \"leave\", \"ar\", \"od\". The handler ALSO accepts the natural-language synonyms that `get_pending_approvals` emits - pass any of: * \"leave\" / \"leaves\" / \"vacation\" / \"pto\" / \"time off\" -> leave * \"ar\" / \"attendance\" / \"attendance regularisation\" / \"attendance regularization\" / \"mark past attendance\" / \"past attendance\" / \"punch\" -> ar (Attendance Regularisation) * \"od\" / \"outOnDuty\" / \"out_on_duty\" / \"out on duty\" / \"outduty\" / \"ood\" -> od (Out On Duty) NOTE: get_pending_approvals emits `module: \"attendance\"` and `module: \"outOnDuty\"` directly - pass either of those verbatim and this tool normalises them."
+  - name: "ids"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "ids"
+    human_description:
+      en_US: "Comma-separated request IDs. REQUIRED in explicit-IDs mode. Optional/ignored when a filter param is provided."
+    llm_description: "Comma-separated request IDs. REQUIRED in explicit-IDs mode. Optional/ignored when a filter param is provided."
+  - name: "action"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "action"
+    human_description:
+      en_US: "\"approve\" or \"reject\"."
+    llm_description: "\"approve\" or \"reject\"."
+  - name: "excludeEmpCodes"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "excludeEmpCodes"
+    human_description:
+      en_US: "Comma-separated employee codes to EXCLUDE. e.g. \"EMP123,EMP456\". Server enumerates pending and skips these."
+    llm_description: "Comma-separated employee codes to EXCLUDE. e.g. \"EMP123,EMP456\". Server enumerates pending and skips these."
+  - name: "excludeNames"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "excludeNames"
+    human_description:
+      en_US: "Comma-separated employee names (or name fragments) to EXCLUDE. Case-insensitive substring match. e.g. \"Azhar,Sandeep\" excludes any pending where empName contains \"azhar\" OR \"sandeep\". USE THIS for \"approve all ARs except <person>\" phrasing."
+    llm_description: "Comma-separated employee names (or name fragments) to EXCLUDE. Case-insensitive substring match. e.g. \"Azhar,Sandeep\" excludes any pending where empName contains \"azhar\" OR \"sandeep\". USE THIS for \"approve all ARs except <person>\" phrasing."
+  - name: "includeOnlyEmpCodes"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "includeOnlyEmpCodes"
+    human_description:
+      en_US: "Comma-separated empCodes to INCLUDE ONLY. All other pending records are skipped."
+    llm_description: "Comma-separated empCodes to INCLUDE ONLY. All other pending records are skipped."
+  - name: "includeOnlyNames"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "includeOnlyNames"
+    human_description:
+      en_US: "Comma-separated names to INCLUDE ONLY. Case-insensitive substring match."
+    llm_description: "Comma-separated names to INCLUDE ONLY. Case-insensitive substring match."
+  - name: "maxLeaveDays"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "maxLeaveDays"
+    human_description:
+      en_US: "LEAVE MODULE ONLY. Include only leaves with duration <= this many days. e.g. \"1\" for \"approve all 1-day leaves\" (half-days pass too). Number as string."
+    llm_description: "LEAVE MODULE ONLY. Include only leaves with duration <= this many days. e.g. \"1\" for \"approve all 1-day leaves\" (half-days pass too). Number as string."
+  - name: "leaveTypes"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "leaveTypes"
+    human_description:
+      en_US: "LEAVE MODULE ONLY. Comma-separated leave-type names or codes to INCLUDE ONLY. Case-insensitive substring - \"casual\" matches \"Casual Leave\". e.g. \"casual,sick\"."
+    llm_description: "LEAVE MODULE ONLY. Comma-separated leave-type names or codes to INCLUDE ONLY. Case-insensitive substring - \"casual\" matches \"Casual Leave\". e.g. \"casual,sick\"."
+  - name: "leaveFilterLogic"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "leaveFilterLogic"
+    human_description:
+      en_US: "\"and\" (default) or \"or\" - how maxLeaveDays + leaveTypes combine when BOTH are passed. \"approve if 1-day OR casual type\" -> \"or\"."
+    llm_description: "\"and\" (default) or \"or\" - how maxLeaveDays + leaveTypes combine when BOTH are passed. \"approve if 1-day OR casual type\" -> \"or\"."
+  - name: "confirm"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirm"
+    human_description:
+      en_US: "Pass \"true\" on the SECOND call after the user confirms a preview (when matched count > 20). Ignored on the first call."
+    llm_description: "Pass \"true\" on the SECOND call after the user confirms a preview (when matched count > 20). Ignored on the first call."
+  - name: "remark"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "remark"
+    human_description:
+      en_US: "Optional remark for the approval/rejection."
+    llm_description: "Optional remark for the approval/rejection."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/approve_reject_requests.py

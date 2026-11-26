@@ -1,0 +1,31 @@
+identity:
+  name: "get_candidates"
+  author: hono
+  label:
+    en_US: "Get Candidates"
+description:
+  human:
+    en_US: "Fetches candidates in the recruitment pipeline with experience, skills, CTC, and job application statuses."
+  llm: "Fetches candidates in the recruitment pipeline with experience, skills, CTC, and job application statuses."
+parameters:
+  - name: "search"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "search"
+    human_description:
+      en_US: "Search by candidate name or email"
+    llm_description: "Search by candidate name or email"
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number (default 1)"
+    llm_description: "Page number (default 1)"
+extra:
+  python:
+    source: tools/get_candidates.py

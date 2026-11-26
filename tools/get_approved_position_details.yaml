@@ -1,0 +1,22 @@
+identity:
+  name: "get_approved_position_details"
+  author: hono
+  label:
+    en_US: "Get Approved Position Details"
+description:
+  human:
+    en_US: "Fetches detailed information on an approved position by ID, including org placement, managers, and CTC band."
+  llm: "Fetches detailed information on an approved position by ID, including org placement, managers, and CTC band."
+parameters:
+  - name: "positionId"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "positionId"
+    human_description:
+      en_US: "The approved position identifier to fetch, for example a position ID from the approved positions list."
+    llm_description: "The approved position identifier to fetch, for example a position ID from the approved positions list."
+extra:
+  python:
+    source: tools/get_approved_position_details.py

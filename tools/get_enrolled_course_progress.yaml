@@ -1,0 +1,22 @@
+identity:
+  name: "get_enrolled_course_progress"
+  author: hono
+  label:
+    en_US: "Get Enrolled Course Progress"
+description:
+  human:
+    en_US: "Returns the progress percentage of an enrolled course using the course ID."
+  llm: "Returns the progress percentage of an enrolled course using the course ID."
+parameters:
+  - name: "courseId"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "courseId"
+    human_description:
+      en_US: "courseId (Int)"
+    llm_description: "courseId (Int)"
+extra:
+  python:
+    source: tools/get_enrolled_course_progress.py

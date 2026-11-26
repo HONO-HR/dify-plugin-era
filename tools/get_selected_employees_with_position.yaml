@@ -1,0 +1,13 @@
+identity:
+  name: "get_selected_employees_with_position"
+  author: hono
+  label:
+    en_US: "Get Selected Employees With Position"
+description:
+  human:
+    en_US: "Returns approved positions for a specific employee, used to review job roles."
+  llm: "Returns approved positions for a specific employee, used to review job roles."
+parameters: []
+extra:
+  python:
+    source: tools/get_selected_employees_with_position.py

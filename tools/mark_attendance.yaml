@@ -1,0 +1,31 @@
+identity:
+  name: "mark_attendance"
+  author: hono
+  label:
+    en_US: "Mark Attendance"
+description:
+  human:
+    en_US: "Records a punch-in or punch-out for the employee at the current time, with the direction given as in or out. Goes through a confirmation step."
+  llm: "Records a punch-in or punch-out for the employee at the current time, with the direction given as in or out. Goes through a confirmation step."
+parameters:
+  - name: "action"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "action"
+    human_description:
+      en_US: "Either \"in\" for punch-in or \"out\" for punch-out"
+    llm_description: "Either \"in\" for punch-in or \"out\" for punch-out"
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/mark_attendance.py

@@ -1,0 +1,94 @@
+identity:
+  name: "submit_expense"
+  author: hono
+  label:
+    en_US: "Submit Expense"
+description:
+  human:
+    en_US: "Records an expense entry with date, amount, vendor, category, and description. Requires user confirmation before submission."
+  llm: "Records an expense entry with date, amount, vendor, category, and description. Requires user confirmation before submission."
+parameters:
+  - name: "date"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "date"
+    human_description:
+      en_US: "Expense date in YYYY-MM-DD format (e.g., \"2026-05-14\")."
+    llm_description: "Expense date in YYYY-MM-DD format (e.g., \"2026-05-14\")."
+  - name: "amount"
+    type: number
+    required: true
+    form: llm
+    label:
+      en_US: "amount"
+    human_description:
+      en_US: "Expense amount as a number (e.g., 45.99). Always positive."
+    llm_description: "Expense amount as a number (e.g., 45.99). Always positive."
+  - name: "currency"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "currency"
+    human_description:
+      en_US: "Currency code (USD, EUR, INR, etc.). Default: USD."
+    llm_description: "Currency code (USD, EUR, INR, etc.). Default: USD."
+  - name: "vendor"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "vendor"
+    human_description:
+      en_US: "Vendor/merchant name (e.g., \"Starbucks\", \"Delta Airlines\", \"Hotel Marriott\")."
+    llm_description: "Vendor/merchant name (e.g., \"Starbucks\", \"Delta Airlines\", \"Hotel Marriott\")."
+  - name: "category"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "category"
+    human_description:
+      en_US: "Expense category: \"meals\", \"travel\", \"accommodation\", \"office\", \"equipment\", \"client_entertainment\", \"other\"."
+    llm_description: "Expense category: \"meals\", \"travel\", \"accommodation\", \"office\", \"equipment\", \"client_entertainment\", \"other\"."
+  - name: "description"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "description"
+    human_description:
+      en_US: "Brief description of the expense (e.g., \"Team lunch meeting\", \"Flight to NYC\")."
+    llm_description: "Brief description of the expense (e.g., \"Team lunch meeting\", \"Flight to NYC\")."
+  - name: "receipt_ref"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "receipt_ref"
+    human_description:
+      en_US: "File reference to the receipt/attachment (e.g., from parseExpenseBill)."
+    llm_description: "File reference to the receipt/attachment (e.g., from parseExpenseBill)."
+  - name: "project_code"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "project_code"
+    human_description:
+      en_US: "Optional project or cost center code to allocate expense."
+    llm_description: "Optional project or cost center code to allocate expense."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/submit_expense.py

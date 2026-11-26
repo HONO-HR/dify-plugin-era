@@ -1,0 +1,13 @@
+identity:
+  name: "get_employee_training_needs"
+  author: hono
+  label:
+    en_US: "Get Employee Training Needs"
+description:
+  human:
+    en_US: "Returns all employee training needs, useful for assessing overall training requirements."
+  llm: "Returns all employee training needs, useful for assessing overall training requirements."
+parameters: []
+extra:
+  python:
+    source: tools/get_employee_training_needs.py

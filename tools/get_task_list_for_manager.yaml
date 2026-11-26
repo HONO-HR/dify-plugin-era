@@ -1,0 +1,13 @@
+identity:
+  name: "get_task_list_for_manager"
+  author: hono
+  label:
+    en_US: "Get Task List For Manager"
+description:
+  human:
+    en_US: "Returns a list of tasks for managers, useful for tracking and managing team goals."
+  llm: "Returns a list of tasks for managers, useful for tracking and managing team goals."
+parameters: []
+extra:
+  python:
+    source: tools/get_task_list_for_manager.py

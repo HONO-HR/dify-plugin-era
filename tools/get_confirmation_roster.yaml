@@ -1,0 +1,22 @@
+identity:
+  name: "get_confirmation_roster"
+  author: hono
+  label:
+    en_US: "Get Confirmation Roster"
+description:
+  human:
+    en_US: "Lists employees whose probation confirmation is pending, grouped by due date, with an optional search by name or employee code."
+  llm: "Lists employees whose probation confirmation is pending, grouped by due date, with an optional search by name or employee code."
+parameters:
+  - name: "search"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "search"
+    human_description:
+      en_US: "Optional name/employee-code filter (server-side globalFilter)."
+    llm_description: "Optional name/employee-code filter (server-side globalFilter)."
+extra:
+  python:
+    source: tools/get_confirmation_roster.py

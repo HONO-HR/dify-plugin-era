@@ -1,0 +1,22 @@
+identity:
+  name: "get_mileage_deviation_details"
+  author: hono
+  label:
+    en_US: "Get Mileage Deviation Details"
+description:
+  human:
+    en_US: "Returns mileage deviation details for a specific expense rule ID."
+  llm: "Returns mileage deviation details for a specific expense rule ID."
+parameters:
+  - name: "expense_rule_id"
+    type: number
+    required: true
+    form: llm
+    label:
+      en_US: "expense_rule_id"
+    human_description:
+      en_US: "expense_rule_id (Int)"
+    llm_description: "expense_rule_id (Int)"
+extra:
+  python:
+    source: tools/get_mileage_deviation_details.py

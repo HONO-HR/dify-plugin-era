@@ -1,0 +1,13 @@
+identity:
+  name: "get_analyze_employee_performance"
+  author: hono
+  label:
+    en_US: "Get Analyze Employee Performance"
+description:
+  human:
+    en_US: "Returns an enhanced analysis of employee performance by employee code."
+  llm: "Returns an enhanced analysis of employee performance by employee code."
+parameters: []
+extra:
+  python:
+    source: tools/get_analyze_employee_performance.py

@@ -1,0 +1,13 @@
+identity:
+  name: "get_goal_review_doc"
+  author: hono
+  label:
+    en_US: "Get Goal Review Doc"
+description:
+  human:
+    en_US: "Provides goal review documents for an employee using their employee code."
+  llm: "Provides goal review documents for an employee using their employee code."
+parameters: []
+extra:
+  python:
+    source: tools/get_goal_review_doc.py

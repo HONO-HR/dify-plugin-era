@@ -1,0 +1,13 @@
+identity:
+  name: "get_fbp_category_list"
+  author: hono
+  label:
+    en_US: "Get FBP Category List"
+description:
+  human:
+    en_US: "Provides a list of FBP categories with descriptions and status."
+  llm: "Provides a list of FBP categories with descriptions and status."
+parameters: []
+extra:
+  python:
+    source: tools/get_fbp_category_list.py

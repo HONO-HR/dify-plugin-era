@@ -1,0 +1,49 @@
+identity:
+  name: "get_onboarding_candidates"
+  author: hono
+  label:
+    en_US: "Get Onboarding Candidates"
+description:
+  human:
+    en_US: "Lists onboarding candidates for HR, showing checklist completion, BGV status, and document tracking."
+  llm: "Lists onboarding candidates for HR, showing checklist completion, BGV status, and document tracking."
+parameters:
+  - name: "candidateId"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "candidateId"
+    human_description:
+      en_US: "Candidate ID to view specific candidate"
+    llm_description: "Candidate ID to view specific candidate"
+  - name: "status"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "status"
+    human_description:
+      en_US: "Filter by status"
+    llm_description: "Filter by status"
+  - name: "stage"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "stage"
+    human_description:
+      en_US: "Filter by onboarding stage"
+    llm_description: "Filter by onboarding stage"
+  - name: "search"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "search"
+    human_description:
+      en_US: "Search by name"
+    llm_description: "Search by name"
+extra:
+  python:
+    source: tools/get_onboarding_candidates.py

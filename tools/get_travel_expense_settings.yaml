@@ -1,0 +1,13 @@
+identity:
+  name: "get_travel_expense_settings"
+  author: hono
+  label:
+    en_US: "Get Travel Expense Settings"
+description:
+  human:
+    en_US: "Returns the current travel expense settings, useful for reviewing or updating travel policies."
+  llm: "Returns the current travel expense settings, useful for reviewing or updating travel policies."
+parameters: []
+extra:
+  python:
+    source: tools/get_travel_expense_settings.py

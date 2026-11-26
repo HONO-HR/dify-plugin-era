@@ -1,0 +1,49 @@
+identity:
+  name: "escalate_support_ticket"
+  author: hono
+  label:
+    en_US: "Escalate Support Ticket"
+description:
+  human:
+    en_US: "Escalates a support ticket one priority level up, recording the reason and notifying the helpdesk. Requires confirmation before final submission."
+  llm: "Escalates a support ticket one priority level up, recording the reason and notifying the helpdesk. Requires confirmation before final submission."
+parameters:
+  - name: "ticketId"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "ticketId"
+    human_description:
+      en_US: "Support ticket id."
+    llm_description: "Support ticket id."
+  - name: "reason"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "reason"
+    human_description:
+      en_US: "Why it is being escalated (SLA breach, customer impact, etc.)."
+    llm_description: "Why it is being escalated (SLA breach, customer impact, etc.)."
+  - name: "confirm"
+    type: boolean
+    required: false
+    form: llm
+    label:
+      en_US: "confirm"
+    human_description:
+      en_US: "true only after the user explicitly confirmed the preview in a later message."
+    llm_description: "true only after the user explicitly confirmed the preview in a later message."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/escalate_support_ticket.py

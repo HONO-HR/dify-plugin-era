@@ -1,0 +1,40 @@
+identity:
+  name: "get_master_roles"
+  author: hono
+  label:
+    en_US: "Get Master Roles"
+description:
+  human:
+    en_US: "Lists roles configured in the HRMS system, including role codes and status, primarily for admin use."
+  llm: "Lists roles configured in the HRMS system, including role codes and status, primarily for admin use."
+parameters:
+  - name: "search"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "search"
+    human_description:
+      en_US: "Optional substring search over role name / code."
+    llm_description: "Optional substring search over role name / code."
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number (0-based, as the backend expects). Default 0."
+    llm_description: "Page number (0-based, as the backend expects). Default 0."
+  - name: "limit"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "limit"
+    human_description:
+      en_US: "Rows per page (1-50). Default 10."
+    llm_description: "Rows per page (1-50). Default 10."
+extra:
+  python:
+    source: tools/get_master_roles.py

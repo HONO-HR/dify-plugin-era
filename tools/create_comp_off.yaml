@@ -1,0 +1,49 @@
+identity:
+  name: "create_comp_off"
+  author: hono
+  label:
+    en_US: "Create Comp Off"
+description:
+  human:
+    en_US: "Submits a comp-off request for a day worked on a holiday or weekend, requiring work date and reason."
+  llm: "Submits a comp-off request for a day worked on a holiday or weekend, requiring work date and reason."
+parameters:
+  - name: "workDate"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "workDate"
+    human_description:
+      en_US: "The date worked (YYYY-MM-DD format) for which comp-off is being claimed."
+    llm_description: "The date worked (YYYY-MM-DD format) for which comp-off is being claimed."
+  - name: "reason"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "reason"
+    human_description:
+      en_US: "Reason for the comp-off request. Required for step 2 (submission)."
+    llm_description: "Reason for the comp-off request. Required for step 2 (submission)."
+  - name: "dayType"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "dayType"
+    human_description:
+      en_US: "Duration - \"full\" (default), \"first\" for first-half, or \"second\" for second-half."
+    llm_description: "Duration - \"full\" (default), \"first\" for first-half, or \"second\" for second-half."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/create_comp_off.py

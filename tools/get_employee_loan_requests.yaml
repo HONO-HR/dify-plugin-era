@@ -1,0 +1,13 @@
+identity:
+  name: "get_employee_loan_requests"
+  author: hono
+  label:
+    en_US: "Get Employee Loan Requests"
+description:
+  human:
+    en_US: "Returns a list of employee loan requests with details like loan type and amount."
+  llm: "Returns a list of employee loan requests with details like loan type and amount."
+parameters: []
+extra:
+  python:
+    source: tools/get_employee_loan_requests.py

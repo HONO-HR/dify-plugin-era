@@ -1,0 +1,67 @@
+identity:
+  name: "create_travel_request"
+  author: hono
+  label:
+    en_US: "Create Travel Request"
+description:
+  human:
+    en_US: "Initiates a travel request draft with purpose, trip summary, comments, advance amount, and travel type. For employees."
+  llm: "Initiates a travel request draft with purpose, trip summary, comments, advance amount, and travel type. For employees."
+parameters:
+  - name: "purpose"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "purpose"
+    human_description:
+      en_US: "Travel purpose name (or id) from the Step-1 list. Required to create."
+    llm_description: "Travel purpose name (or id) from the Step-1 list. Required to create."
+  - name: "tripSummary"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "tripSummary"
+    human_description:
+      en_US: "The trip in the user's words: from -> to, dates, preferred mode/class. E.g. \"Gurgaon to Mumbai, 20-22 Aug, flight\". Required to create."
+    llm_description: "The trip in the user's words: from -> to, dates, preferred mode/class. E.g. \"Gurgaon to Mumbai, 20-22 Aug, flight\". Required to create."
+  - name: "comments"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "comments"
+    human_description:
+      en_US: "Any additional remarks from the user (optional - tripSummary is included automatically)."
+    llm_description: "Any additional remarks from the user (optional - tripSummary is included automatically)."
+  - name: "advanceAmount"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "advanceAmount"
+    human_description:
+      en_US: "Cash advance amount if the user needs one (domestic trips only). Omit when not needed."
+    llm_description: "Cash advance amount if the user needs one (domestic trips only). Omit when not needed."
+  - name: "travelType"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "travelType"
+    human_description:
+      en_US: "\"domestic\" (default) or \"international\"."
+    llm_description: "\"domestic\" (default) or \"international\"."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/create_travel_request.py

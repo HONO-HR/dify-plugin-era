@@ -1,0 +1,40 @@
+identity:
+  name: "get_matching_jobs"
+  author: hono
+  label:
+    en_US: "Get Matching Jobs"
+description:
+  human:
+    en_US: "Provides AI-ranked job matches for a specified candidate, including match percentage and position name."
+  llm: "Provides AI-ranked job matches for a specified candidate, including match percentage and position name."
+parameters:
+  - name: "candidate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "candidate"
+    human_description:
+      en_US: "The candidate to match - name, email, or candidate id. E.g. \"John Doe\"."
+    llm_description: "The candidate to match - name, email, or candidate id. E.g. \"John Doe\"."
+  - name: "candidateId"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "candidateId"
+    human_description:
+      en_US: "The candidate id if already known (e.g. from get_candidates). Preferred over name when available."
+    llm_description: "The candidate id if already known (e.g. from get_candidates). Preferred over name when available."
+  - name: "topN"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "topN"
+    human_description:
+      en_US: "How many jobs to return (default 5, max 25)."
+    llm_description: "How many jobs to return (default 5, max 25)."
+extra:
+  python:
+    source: tools/get_matching_jobs.py

@@ -1,0 +1,49 @@
+identity:
+  name: "escalate_to_hr"
+  author: hono
+  label:
+    en_US: "Escalate To HR"
+description:
+  human:
+    en_US: "Escalates an issue to HR with a reason and urgency level, sending an email. Requires confirmation before final submission."
+  llm: "Escalates an issue to HR with a reason and urgency level, sending an email. Requires confirmation before final submission."
+parameters:
+  - name: "reason"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "reason"
+    human_description:
+      en_US: "Brief summary of why the user needs HR help"
+    llm_description: "Brief summary of why the user needs HR help"
+  - name: "urgency"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "urgency"
+    human_description:
+      en_US: "low, medium, or high"
+    llm_description: "low, medium, or high"
+  - name: "confirm"
+    type: boolean
+    required: false
+    form: llm
+    label:
+      en_US: "confirm"
+    human_description:
+      en_US: "true only after the user explicitly confirmed the escalation preview in a later message"
+    llm_description: "true only after the user explicitly confirmed the escalation preview in a later message"
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/escalate_to_hr.py

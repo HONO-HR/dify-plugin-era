@@ -1,0 +1,31 @@
+identity:
+  name: "get_travel_modes"
+  author: hono
+  label:
+    en_US: "Get Travel Modes"
+description:
+  human:
+    en_US: "Returns available travel modes filtered by head type and status, useful for planning travel logistics."
+  llm: "Returns available travel modes filtered by head type and status, useful for planning travel logistics."
+parameters:
+  - name: "HeadTypeId"
+    type: number
+    required: true
+    form: llm
+    label:
+      en_US: "HeadTypeId"
+    human_description:
+      en_US: "HeadTypeId (Int)"
+    llm_description: "HeadTypeId (Int)"
+  - name: "Status"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "Status"
+    human_description:
+      en_US: "Status (Int)"
+    llm_description: "Status (Int)"
+extra:
+  python:
+    source: tools/get_travel_modes.py

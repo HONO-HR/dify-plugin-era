@@ -1,0 +1,40 @@
+identity:
+  name: "get_program_scheduling_list"
+  author: hono
+  label:
+    en_US: "Get Program Scheduling List"
+description:
+  human:
+    en_US: "Returns a list of program schedules with pagination and search options, useful for managing multiple program schedules."
+  llm: "Returns a list of program schedules with pagination and search options, useful for managing multiple program schedules."
+parameters:
+  - name: "offset"
+    type: number
+    required: true
+    form: llm
+    label:
+      en_US: "offset"
+    human_description:
+      en_US: "offset (Int)"
+    llm_description: "offset (Int)"
+  - name: "limit"
+    type: number
+    required: true
+    form: llm
+    label:
+      en_US: "limit"
+    human_description:
+      en_US: "limit (Int)"
+    llm_description: "limit (Int)"
+  - name: "search"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "search"
+    human_description:
+      en_US: "search (String)"
+    llm_description: "search (String)"
+extra:
+  python:
+    source: tools/get_program_scheduling_list.py

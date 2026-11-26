@@ -1,0 +1,22 @@
+identity:
+  name: "get_program_invested_hour"
+  author: hono
+  label:
+    en_US: "Get Program Invested Hour"
+description:
+  human:
+    en_US: "Returns total hours invested in a course by course ID, useful for tracking learning activity and engagement."
+  llm: "Returns total hours invested in a course by course ID, useful for tracking learning activity and engagement."
+parameters:
+  - name: "course_id"
+    type: number
+    required: true
+    form: llm
+    label:
+      en_US: "course_id"
+    human_description:
+      en_US: "course_id (Int)"
+    llm_description: "course_id (Int)"
+extra:
+  python:
+    source: tools/get_program_invested_hour.py

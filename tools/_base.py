@@ -64,12 +64,21 @@ def mcp_request(credentials: dict[str, Any], method: str, params: dict[str, Any]
 
 
 class EraMcpMixin:
-    """Mixed into each generated Tool class, which sets MCP_TOOL_NAME."""
+    """Mixed into each generated Tool class, which sets MCP_TOOL_NAME (and JSON_PARAMS
+    for array/object params, which Dify passes as JSON text)."""
 
     MCP_TOOL_NAME = ""
+    JSON_PARAMS: tuple[str, ...] = ()
 
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator:
         args = {k: v for k, v in tool_parameters.items() if v is not None and v != ""}
+        for name in self.JSON_PARAMS:
+            if isinstance(args.get(name), str):
+                try:
+                    args[name] = json.loads(args[name])
+                except ValueError:
+                    yield self.create_text_message(f"Parameter {name} must be JSON text.")
+                    return
         try:
             result = mcp_request(self.runtime.credentials, "tools/call", {"name": self.MCP_TOOL_NAME, "arguments": args})
         except EraMcpError as e:

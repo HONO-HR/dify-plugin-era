@@ -1,0 +1,22 @@
+identity:
+  name: "get_lms_learnings_by_emp_code"
+  author: hono
+  label:
+    en_US: "Get LMS Learnings By Emp Code"
+description:
+  human:
+    en_US: "Returns PMSLearningMaster data filtered by employee role for personalized learning paths."
+  llm: "Returns PMSLearningMaster data filtered by employee role for personalized learning paths."
+parameters:
+  - name: "EmpRole"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "EmpRole"
+    human_description:
+      en_US: "EmpRole (String)"
+    llm_description: "EmpRole (String)"
+extra:
+  python:
+    source: tools/get_lms_learnings_by_emp_code.py

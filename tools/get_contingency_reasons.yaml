@@ -1,0 +1,22 @@
+identity:
+  name: "get_contingency_reasons"
+  author: hono
+  label:
+    en_US: "Get Contingency Reasons"
+description:
+  human:
+    en_US: "Returns contingency reasons for a leave type, useful for special leave requests."
+  llm: "Returns contingency reasons for a leave type, useful for special leave requests."
+parameters:
+  - name: "lvtype"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "lvtype"
+    human_description:
+      en_US: "lvtype (String)"
+    llm_description: "lvtype (String)"
+extra:
+  python:
+    source: tools/get_contingency_reasons.py

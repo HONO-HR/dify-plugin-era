@@ -1,0 +1,22 @@
+identity:
+  name: "get_pms_status_list"
+  author: hono
+  label:
+    en_US: "Get PMS Status List"
+description:
+  human:
+    en_US: "Returns a list of PMS statuses filtered by flag, including name and color code, for status tracking."
+  llm: "Returns a list of PMS statuses filtered by flag, including name and color code, for status tracking."
+parameters:
+  - name: "Flag"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "Flag"
+    human_description:
+      en_US: "Flag (Int)"
+    llm_description: "Flag (Int)"
+extra:
+  python:
+    source: tools/get_pms_status_list.py

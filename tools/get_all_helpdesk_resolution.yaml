@@ -1,0 +1,13 @@
+identity:
+  name: "get_all_helpdesk_resolution"
+  author: hono
+  label:
+    en_US: "Get All Helpdesk Resolution"
+description:
+  human:
+    en_US: "Returns all helpdesk resolutions, used for resolving tickets."
+  llm: "Returns all helpdesk resolutions, used for resolving tickets."
+parameters: []
+extra:
+  python:
+    source: tools/get_all_helpdesk_resolution.py

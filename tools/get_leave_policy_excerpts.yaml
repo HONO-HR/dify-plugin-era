@@ -1,0 +1,22 @@
+identity:
+  name: "get_leave_policy_excerpts"
+  author: hono
+  label:
+    en_US: "Get Leave Policy Excerpts"
+description:
+  human:
+    en_US: "Returns leave policy excerpts for a given leave type, useful for policy reference."
+  llm: "Returns leave policy excerpts for a given leave type, useful for policy reference."
+parameters:
+  - name: "LvType"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "LvType"
+    human_description:
+      en_US: "LvType (String)"
+    llm_description: "LvType (String)"
+extra:
+  python:
+    source: tools/get_leave_policy_excerpts.py

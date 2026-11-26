@@ -1,0 +1,13 @@
+identity:
+  name: "get_employees_by_ou"
+  author: hono
+  label:
+    en_US: "Get Employees By Ou"
+description:
+  human:
+    en_US: "Retrieves employees by organizational unit using employee code."
+  llm: "Retrieves employees by organizational unit using employee code."
+parameters: []
+extra:
+  python:
+    source: tools/get_employees_by_ou.py

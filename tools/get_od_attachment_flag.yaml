@@ -1,0 +1,13 @@
+identity:
+  name: "get_od_attachment_flag"
+  author: hono
+  label:
+    en_US: "Get OD Attachment Flag"
+description:
+  human:
+    en_US: "Returns a list of LOVMaster fields for attendance module without filters, used to check OD attachment flags."
+  llm: "Returns a list of LOVMaster fields for attendance module without filters, used to check OD attachment flags."
+parameters: []
+extra:
+  python:
+    source: tools/get_od_attachment_flag.py

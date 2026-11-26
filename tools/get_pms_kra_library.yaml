@@ -1,0 +1,22 @@
+identity:
+  name: "get_pms_kra_library"
+  author: hono
+  label:
+    en_US: "Get PMS KRA Library"
+description:
+  human:
+    en_US: "Fetches the PMS KRA library with KRA details and weightage rules. Optional flag filter available."
+  llm: "Fetches the PMS KRA library with KRA details and weightage rules. Optional flag filter available."
+parameters:
+  - name: "flag"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "flag"
+    human_description:
+      en_US: "Optional backend KRA flag to filter the library."
+    llm_description: "Optional backend KRA flag to filter the library."
+extra:
+  python:
+    source: tools/get_pms_kra_library.py

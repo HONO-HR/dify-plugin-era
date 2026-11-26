@@ -1,0 +1,13 @@
+identity:
+  name: "get_lv_types_for_selected_emp"
+  author: hono
+  label:
+    en_US: "Get Lv Types For Selected Emp"
+description:
+  human:
+    en_US: "Returns leave types available for a selected employee, useful for personalized leave management."
+  llm: "Returns leave types available for a selected employee, useful for personalized leave management."
+parameters: []
+extra:
+  python:
+    source: tools/get_lv_types_for_selected_emp.py

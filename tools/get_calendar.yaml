@@ -1,0 +1,31 @@
+identity:
+  name: "get_calendar"
+  author: hono
+  label:
+    en_US: "Get Calendar"
+description:
+  human:
+    en_US: "Returns attendance records for employees within a specified date range, useful for tracking work hours and shifts."
+  llm: "Returns attendance records for employees within a specified date range, useful for tracking work hours and shifts."
+parameters:
+  - name: "startDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "startDate"
+    human_description:
+      en_US: "startDate (Date)"
+    llm_description: "startDate (Date)"
+  - name: "endDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "endDate"
+    human_description:
+      en_US: "endDate (Date)"
+    llm_description: "endDate (Date)"
+extra:
+  python:
+    source: tools/get_calendar.py

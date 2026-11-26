@@ -1,0 +1,49 @@
+identity:
+  name: "get_support_ticket_queue"
+  author: hono
+  label:
+    en_US: "Get Support Ticket Queue"
+description:
+  human:
+    en_US: "Provides an HR/admin view of the open support-ticket queue, detailing ticket age, SLA targets, breach flags, and totals by priority and category."
+  llm: "Provides an HR/admin view of the open support-ticket queue, detailing ticket age, SLA targets, breach flags, and totals by priority and category."
+parameters:
+  - name: "breachedOnly"
+    type: boolean
+    required: false
+    form: llm
+    label:
+      en_US: "breachedOnly"
+    human_description:
+      en_US: "Only tickets past their SLA target (default false)."
+    llm_description: "Only tickets past their SLA target (default false)."
+  - name: "category"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "category"
+    human_description:
+      en_US: "Filter by category, e.g. \"Payroll\", \"IT\" (case-insensitive contains)."
+    llm_description: "Filter by category, e.g. \"Payroll\", \"IT\" (case-insensitive contains)."
+  - name: "status"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "status"
+    human_description:
+      en_US: "\"open\" (default: open + in_progress), \"in_progress\", or \"all\" to include resolved/closed from the last 30 days."
+    llm_description: "\"open\" (default: open + in_progress), \"in_progress\", or \"all\" to include resolved/closed from the last 30 days."
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page of 50 tickets, oldest first."
+    llm_description: "Page of 50 tickets, oldest first."
+extra:
+  python:
+    source: tools/get_support_ticket_queue.py

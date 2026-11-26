@@ -1,0 +1,40 @@
+identity:
+  name: "get_em_classes"
+  author: hono
+  label:
+    en_US: "Get Em Classes"
+description:
+  human:
+    en_US: "Returns EM classes based on head type, status, and mode of travel."
+  llm: "Returns EM classes based on head type, status, and mode of travel."
+parameters:
+  - name: "HeadTypeId"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "HeadTypeId"
+    human_description:
+      en_US: "HeadTypeId (Int)"
+    llm_description: "HeadTypeId (Int)"
+  - name: "Status"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "Status"
+    human_description:
+      en_US: "Status (Int)"
+    llm_description: "Status (Int)"
+  - name: "ModeOfTravelId"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "ModeOfTravelId"
+    human_description:
+      en_US: "ModeOfTravelId (Int)"
+    llm_description: "ModeOfTravelId (Int)"
+extra:
+  python:
+    source: tools/get_em_classes.py

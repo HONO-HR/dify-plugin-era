@@ -1,0 +1,22 @@
+identity:
+  name: "get_leave_other_reason_list"
+  author: hono
+  label:
+    en_US: "Get Leave Other Reason List"
+description:
+  human:
+    en_US: "Returns a list of other leave reasons by leave type ID for leave management."
+  llm: "Returns a list of other leave reasons by leave type ID for leave management."
+parameters:
+  - name: "lvtypeid"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "lvtypeid"
+    human_description:
+      en_US: "lvtypeid (Int)"
+    llm_description: "lvtypeid (Int)"
+extra:
+  python:
+    source: tools/get_leave_other_reason_list.py

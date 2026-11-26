@@ -1,0 +1,13 @@
+identity:
+  name: "get_all_cry_frwd_leaves"
+  author: hono
+  label:
+    en_US: "Get All Cry Frwd Leaves"
+description:
+  human:
+    en_US: "Returns all carry-forward leave rules, useful for managing leave policies and entitlements."
+  llm: "Returns all carry-forward leave rules, useful for managing leave policies and entitlements."
+parameters: []
+extra:
+  python:
+    source: tools/get_all_cry_frwd_leaves.py

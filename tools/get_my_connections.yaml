@@ -1,0 +1,22 @@
+identity:
+  name: "get_my_connections"
+  author: hono
+  label:
+    en_US: "Get My Connections"
+description:
+  human:
+    en_US: "Shows which external apps the employee has linked to ERA, such as Outlook or Google Drive, with each one's connection status and how to connect or disconnect it."
+  llm: "Shows which external apps the employee has linked to ERA, such as Outlook or Google Drive, with each one's connection status and how to connect or disconnect it."
+parameters:
+  - name: "provider"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "provider"
+    human_description:
+      en_US: "Optional: focus on one provider (outlook | google_drive | sharepoint | hubspot | successfactors | microsoft | slack | jira | github | notion). Omit to show everything."
+    llm_description: "Optional: focus on one provider (outlook | google_drive | sharepoint | hubspot | successfactors | microsoft | slack | jira | github | notion). Omit to show everything."
+extra:
+  python:
+    source: tools/get_my_connections.py

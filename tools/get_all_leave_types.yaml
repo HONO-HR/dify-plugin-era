@@ -1,0 +1,22 @@
+identity:
+  name: "get_all_leave_types"
+  author: hono
+  label:
+    en_US: "Get All Leave Types"
+description:
+  human:
+    en_US: "Returns leave types with selected attributes, useful for configuring leave policies."
+  llm: "Returns leave types with selected attributes, useful for configuring leave policies."
+parameters:
+  - name: "selectedAttributes"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "selectedAttributes"
+    human_description:
+      en_US: "selectedAttributes (list of String) Pass as JSON text (a JSON array)."
+    llm_description: "selectedAttributes (list of String) Pass as JSON text (a JSON array)."
+extra:
+  python:
+    source: tools/get_all_leave_types.py

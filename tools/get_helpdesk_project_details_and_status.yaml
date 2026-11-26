@@ -1,0 +1,13 @@
+identity:
+  name: "get_helpdesk_project_details_and_status"
+  author: hono
+  label:
+    en_US: "Get Helpdesk Project Details And Status"
+description:
+  human:
+    en_US: "Returns project details and status information including project code and subcategories."
+  llm: "Returns project details and status information including project code and subcategories."
+parameters: []
+extra:
+  python:
+    source: tools/get_helpdesk_project_details_and_status.py

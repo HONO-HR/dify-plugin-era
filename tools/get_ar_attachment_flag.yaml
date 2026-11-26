@@ -1,0 +1,13 @@
+identity:
+  name: "get_ar_attachment_flag"
+  author: hono
+  label:
+    en_US: "Get AR Attachment Flag"
+description:
+  human:
+    en_US: "Returns a list of attachment flags for attendance records, useful for filtering by menu."
+  llm: "Returns a list of attachment flags for attendance records, useful for filtering by menu."
+parameters: []
+extra:
+  python:
+    source: tools/get_ar_attachment_flag.py

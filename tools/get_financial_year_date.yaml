@@ -1,0 +1,13 @@
+identity:
+  name: "get_financial_year_date"
+  author: hono
+  label:
+    en_US: "Get Financial Year Date"
+description:
+  human:
+    en_US: "Returns the start and end dates of the financial year with type information."
+  llm: "Returns the start and end dates of the financial year with type information."
+parameters: []
+extra:
+  python:
+    source: tools/get_financial_year_date.py

@@ -1,0 +1,40 @@
+identity:
+  name: "get_suitable_candidates"
+  author: hono
+  label:
+    en_US: "Get Suitable Candidates"
+description:
+  human:
+    en_US: "Returns AI-ranked suitable candidates for a specified job or requisition, including match percentage and resume link."
+  llm: "Returns AI-ranked suitable candidates for a specified job or requisition, including match percentage and resume link."
+parameters:
+  - name: "jobTitle"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "jobTitle"
+    human_description:
+      en_US: "The open position/role to match candidates against, e.g. \"Senior Software Engineer\". Resolved to a requisition."
+    llm_description: "The open position/role to match candidates against, e.g. \"Senior Software Engineer\". Resolved to a requisition."
+  - name: "rfrId"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "rfrId"
+    human_description:
+      en_US: "The RFR/requisition id if already known (e.g. from get_open_positions). Skips title resolution."
+    llm_description: "The RFR/requisition id if already known (e.g. from get_open_positions). Skips title resolution."
+  - name: "topN"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "topN"
+    human_description:
+      en_US: "How many candidates to return (default 5, max 25)."
+    llm_description: "How many candidates to return (default 5, max 25)."
+extra:
+  python:
+    source: tools/get_suitable_candidates.py

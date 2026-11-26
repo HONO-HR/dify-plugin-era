@@ -1,0 +1,13 @@
+identity:
+  name: "get_users_programs"
+  author: hono
+  label:
+    en_US: "Get Users Programs"
+description:
+  human:
+    en_US: "Returns a list of programs for all users, useful for managing user enrollments and program participation."
+  llm: "Returns a list of programs for all users, useful for managing user enrollments and program participation."
+parameters: []
+extra:
+  python:
+    source: tools/get_users_programs.py

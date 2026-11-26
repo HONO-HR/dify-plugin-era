@@ -1,0 +1,49 @@
+identity:
+  name: "get_master_data"
+  author: hono
+  label:
+    en_US: "Get Master Data"
+description:
+  human:
+    en_US: "Fetches admin reference tables for HR org structure, like business units, departments, designations, and more."
+  llm: "Fetches admin reference tables for HR org structure, like business units, departments, designations, and more."
+parameters:
+  - name: "masterName"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "masterName"
+    human_description:
+      en_US: "Friendly name of the master - e.g. \"business units\", \"departments\", \"designations\", \"grades\", \"bands\", \"locations\", \"work locations\", \"industry\", \"qualifications\", \"certifications\", \"countries\", \"languages\", \"categories\", \"banks\", \"bank branches\", \"rfr status\". If the user gives a tablename like \"BUSSMAST\" it also works."
+    llm_description: "Friendly name of the master - e.g. \"business units\", \"departments\", \"designations\", \"grades\", \"bands\", \"locations\", \"work locations\", \"industry\", \"qualifications\", \"certifications\", \"countries\", \"languages\", \"categories\", \"banks\", \"bank branches\", \"rfr status\". If the user gives a tablename like \"BUSSMAST\" it also works."
+  - name: "search"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "search"
+    human_description:
+      en_US: "Optional substring search over the master's primary label column."
+    llm_description: "Optional substring search over the master's primary label column."
+  - name: "page"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "page"
+    human_description:
+      en_US: "Page number (1-based). Default 1."
+    llm_description: "Page number (1-based). Default 1."
+  - name: "limit"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "limit"
+    human_description:
+      en_US: "Rows per page (1-50). Default 20."
+    llm_description: "Rows per page (1-50). Default 20."
+extra:
+  python:
+    source: tools/get_master_data.py

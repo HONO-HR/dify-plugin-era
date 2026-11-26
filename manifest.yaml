@@ -5,7 +5,7 @@ name: hono_era
 label:
   en_US: ERA by HONO
 description:
-  en_US: Read-only HONO HRMS tools for Dify. Leave, attendance, payroll summary, team, performance, learning, hiring and policies, using your own ERA access.
+  en_US: HONO HRMS tools for Dify. Read leave, attendance, pay, team, performance, learning, hiring and policies, and apply, approve or cancel requests after a confirmation step, using your own ERA access.
 icon: icon.png
 tags:
   - business

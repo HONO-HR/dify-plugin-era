@@ -1,0 +1,40 @@
+identity:
+  name: "submit_self_service_request"
+  author: hono
+  label:
+    en_US: "Submit Self Service Request"
+description:
+  human:
+    en_US: "Submits a self-service change request, such as updated contact details, with the request type and a description; the request goes for approval."
+  llm: "Submits a self-service change request, such as updated contact details, with the request type and a description; the request goes for approval."
+parameters:
+  - name: "requestType"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "requestType"
+    human_description:
+      en_US: "The request type name (or Id) from the Step-1 list, e.g. \"Contact detail change\". Required to submit."
+    llm_description: "The request type name (or Id) from the Step-1 list, e.g. \"Contact detail change\". Required to submit."
+  - name: "description"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "description"
+    human_description:
+      en_US: "Full description of the request INCLUDING the new values (e.g. \"Update my mobile number to 98xxxxxx10\"). Required to submit."
+    llm_description: "Full description of the request INCLUDING the new values (e.g. \"Update my mobile number to 98xxxxxx10\"). Required to submit."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/submit_self_service_request.py

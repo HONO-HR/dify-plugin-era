@@ -1,0 +1,58 @@
+identity:
+  name: "apply_out_on_duty"
+  author: hono
+  label:
+    en_US: "Apply Out On Duty"
+description:
+  human:
+    en_US: "Submits an out-on-duty request for the employee with start and end dates, nature of work and reason; the request goes for approval."
+  llm: "Submits an out-on-duty request for the employee with start and end dates, nature of work and reason; the request goes for approval."
+parameters:
+  - name: "fromDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "fromDate"
+    human_description:
+      en_US: "Start date in STRICT YYYY-MM-DD format. Middle component is the MONTH (01-12). Example: April 9, 2026 = \"2026-04-09\" (NOT \"2026-09-04\")."
+    llm_description: "Start date in STRICT YYYY-MM-DD format. Middle component is the MONTH (01-12). Example: April 9, 2026 = \"2026-04-09\" (NOT \"2026-09-04\")."
+  - name: "toDate"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "toDate"
+    human_description:
+      en_US: "End date in STRICT YYYY-MM-DD format. Same month-position rule as fromDate."
+    llm_description: "End date in STRICT YYYY-MM-DD format. Same month-position rule as fromDate."
+  - name: "natureOfWork"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "natureOfWork"
+    human_description:
+      en_US: "Nature of work code (LOV_Value from reasons list)"
+    llm_description: "Nature of work code (LOV_Value from reasons list)"
+  - name: "reason"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "reason"
+    human_description:
+      en_US: "Reason/remarks for the OD request"
+    llm_description: "Reason/remarks for the OD request"
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/apply_out_on_duty.py

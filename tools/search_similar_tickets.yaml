@@ -1,0 +1,31 @@
+identity:
+  name: "search_similar_tickets"
+  author: hono
+  label:
+    en_US: "Search Similar Tickets"
+description:
+  human:
+    en_US: "Searches for existing support tickets similar to a reported problem, prioritizing resolved ones with a written resolution."
+  llm: "Searches for existing support tickets similar to a reported problem, prioritizing resolved ones with a written resolution."
+parameters:
+  - name: "query"
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: "query"
+    human_description:
+      en_US: "The user's issue in their own words (paste the verbatim complaint). ERA extracts keywords automatically."
+    llm_description: "The user's issue in their own words (paste the verbatim complaint). ERA extracts keywords automatically."
+  - name: "includeOpen"
+    type: boolean
+    required: false
+    form: llm
+    label:
+      en_US: "includeOpen"
+    human_description:
+      en_US: "Include open / in-progress tickets too (default: only resolved + closed, since those have answers)."
+    llm_description: "Include open / in-progress tickets too (default: only resolved + closed, since those have answers)."
+extra:
+  python:
+    source: tools/search_similar_tickets.py

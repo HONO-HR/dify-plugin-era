@@ -1,0 +1,40 @@
+identity:
+  name: "get_promotion_template_data"
+  author: hono
+  label:
+    en_US: "Get Promotion Template Data"
+description:
+  human:
+    en_US: "Returns promotion template data for a PMS ID, useful for managing employee promotions."
+  llm: "Returns promotion template data for a PMS ID, useful for managing employee promotions."
+parameters:
+  - name: "PMSId"
+    type: number
+    required: true
+    form: llm
+    label:
+      en_US: "PMSId"
+    human_description:
+      en_US: "PMSId (Int)"
+    llm_description: "PMSId (Int)"
+  - name: "review"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "review"
+    human_description:
+      en_US: "review (String)"
+    llm_description: "review (String)"
+  - name: "EmpRole"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "EmpRole"
+    human_description:
+      en_US: "EmpRole (String)"
+    llm_description: "EmpRole (String)"
+extra:
+  python:
+    source: tools/get_promotion_template_data.py

@@ -5,7 +5,7 @@ identity:
   label:
     en_US: ERA by HONO
   description:
-    en_US: Read your HONO HRMS data (leave, attendance, payroll summary, team, performance, learning, hiring, policies) from Dify with your own ERA access.
+    en_US: Use HONO HRMS from Dify with your own ERA access. Read leave, attendance, pay, team, performance, learning, hiring and policy data, and apply, approve or cancel requests after a confirmation step.
   icon: icon.png
   tags:
     - business
@@ -28,33 +28,114 @@ credentials_for_provider:
     placeholder:
       en_US: hno_live_...
     help:
-      en_US: Create a key in ERA under Profile > MCP keys. A read-only key is recommended. Your HONO administrator must have MCP access enabled.
+      en_US: Create a key in ERA under Profile > MCP keys. Leave "Everyday HR tools only" unticked to use all tools. Tick "Read-only" if this Dify app should only read data. Your HONO administrator must have MCP access enabled.
 tools:
+  - tools/apply_attendance_regularisation.yaml
+  - tools/apply_leave.yaml
+  - tools/apply_out_on_duty.yaml
+  - tools/apply_overtime.yaml
+  - tools/approve_reject_requests.yaml
+  - tools/cancel_ar.yaml
+  - tools/cancel_leave.yaml
+  - tools/cancel_od.yaml
+  - tools/cancel_overtime_request.yaml
+  - tools/cancel_training_request.yaml
+  - tools/compare_employees.yaml
+  - tools/complete_onboarding_step.yaml
+  - tools/create_comp_off.yaml
+  - tools/create_support_ticket.yaml
+  - tools/create_travel_request.yaml
+  - tools/escalate_support_ticket.yaml
+  - tools/escalate_to_hr.yaml
+  - tools/explain_my_pay_change.yaml
+  - tools/fetch_goal_template_list.yaml
   - tools/fetch_pms_templates.yaml
+  - tools/get_active_perspective_master_list.yaml
+  - tools/get_active_policies_category_list.yaml
+  - tools/get_all_cry_frwd_leaves.yaml
+  - tools/get_all_fy_details.yaml
+  - tools/get_all_helpdesk_resolution.yaml
+  - tools/get_all_leave_reasons.yaml
+  - tools/get_all_leave_types.yaml
+  - tools/get_all_master_leave.yaml
+  - tools/get_all_pms_roles.yaml
+  - tools/get_analyze_employee_performance.yaml
+  - tools/get_applicable_mileage_rule.yaml
   - tools/get_applied_candidates.yaml
+  - tools/get_approved_position_details.yaml
+  - tools/get_approved_positions.yaml
+  - tools/get_ar_attachment_flag.yaml
   - tools/get_assigned_assets.yaml
+  - tools/get_attendance_analytics.yaml
   - tools/get_attendance_calendar.yaml
   - tools/get_attendance_report.yaml
+  - tools/get_calendar.yaml
+  - tools/get_candidate_profile.yaml
+  - tools/get_candidates.yaml
+  - tools/get_cascade_from_ly.yaml
+  - tools/get_cascade_from_mngr.yaml
   - tools/get_celebrations.yaml
+  - tools/get_client_projects.yaml
   - tools/get_company_directory.yaml
   - tools/get_competency_list.yaml
+  - tools/get_confirmation_roster.yaml
+  - tools/get_contingency_reasons.yaml
+  - tools/get_course_lessons.yaml
+  - tools/get_currency.yaml
   - tools/get_daily_punch_log.yaml
+  - tools/get_deviations.yaml
+  - tools/get_em_classes.yaml
+  - tools/get_emp_details.yaml
+  - tools/get_employee_approved_details.yaml
+  - tools/get_employee_basic_detail.yaml
+  - tools/get_employee_compoff_leave_auto_apply_list.yaml
+  - tools/get_employee_loan_requests.yaml
   - tools/get_employee_payroll_health.yaml
   - tools/get_employee_profile.yaml
+  - tools/get_employee_training_needs.yaml
+  - tools/get_employees_by_ou.yaml
+  - tools/get_enrolled_course_progress.yaml
+  - tools/get_event_reasons_for_event.yaml
+  - tools/get_expense_head_type.yaml
   - tools/get_expiring_documents.yaml
+  - tools/get_fbp_category_list.yaml
   - tools/get_feedback_360_pending.yaml
+  - tools/get_fin_yr.yaml
+  - tools/get_financial_year_date.yaml
+  - tools/get_fy_start.yaml
+  - tools/get_goal_id_according_to_emp_code.yaml
+  - tools/get_goal_review_doc.yaml
   - tools/get_goal_sheet.yaml
+  - tools/get_goal_task_list.yaml
+  - tools/get_helpdesk_project_details_and_status.yaml
   - tools/get_holiday_list.yaml
   - tools/get_lapsable_leave_exposure.yaml
+  - tools/get_latest_activities.yaml
+  - tools/get_latest_onboarded_candidates.yaml
+  - tools/get_learning_programs.yaml
+  - tools/get_leave_analytics.yaml
   - tools/get_leave_balance.yaml
   - tools/get_leave_encashment.yaml
   - tools/get_leave_expiry_warnings.yaml
+  - tools/get_leave_masters.yaml
+  - tools/get_leave_other_reason_list.yaml
   - tools/get_leave_policy.yaml
+  - tools/get_leave_policy_excerpts.yaml
   - tools/get_leave_transactions.yaml
   - tools/get_letters.yaml
+  - tools/get_lms_learnings_by_emp_code.yaml
   - tools/get_lms_program_catalog.yaml
+  - tools/get_lms_programs_list.yaml
   - tools/get_loan_balance.yaml
+  - tools/get_lv_doe_by_lv_type_id.yaml
+  - tools/get_lv_types_for_selected_emp.yaml
+  - tools/get_manager_pending_for_approval.yaml
+  - tools/get_master_data.yaml
+  - tools/get_master_roles.yaml
+  - tools/get_matching_jobs.yaml
+  - tools/get_mileage_deviation_details.yaml
   - tools/get_missing_punches.yaml
+  - tools/get_my_connections.yaml
   - tools/get_my_day.yaml
   - tools/get_my_employee_summary.yaml
   - tools/get_my_one_page_profile.yaml
@@ -63,29 +144,61 @@ tools:
   - tools/get_my_referrals_status.yaml
   - tools/get_my_transaction_status.yaml
   - tools/get_my_travel_requests.yaml
+  - tools/get_od_attachment_flag.yaml
   - tools/get_od_transactions.yaml
   - tools/get_offer_status.yaml
+  - tools/get_onboarded_by_month.yaml
+  - tools/get_onboarding_candidates.yaml
   - tools/get_onboarding_status.yaml
   - tools/get_onboarding_status_full.yaml
   - tools/get_open_positions.yaml
   - tools/get_overtime_requests.yaml
+  - tools/get_pay_cycle.yaml
+  - tools/get_payhead_components.yaml
+  - tools/get_payment_modes.yaml
   - tools/get_payroll_summary.yaml
   - tools/get_pending_approvals.yaml
   - tools/get_pending_evaluations.yaml
+  - tools/get_pending_for_approval_users.yaml
   - tools/get_pending_surveys.yaml
   - tools/get_performance_review.yaml
   - tools/get_pms_cycle_timeline.yaml
   - tools/get_pms_goal_tasks.yaml
+  - tools/get_pms_kra_library.yaml
+  - tools/get_pms_manager_stage_history.yaml
+  - tools/get_pms_performance_plan.yaml
+  - tools/get_pms_report.yaml
+  - tools/get_pms_status_list.yaml
+  - tools/get_pms_template_name.yaml
+  - tools/get_positions.yaml
   - tools/get_pre_one_on_one_brief.yaml
+  - tools/get_program_course_list.yaml
+  - tools/get_program_head_count.yaml
+  - tools/get_program_invested_hour.yaml
+  - tools/get_program_scheduling_list.yaml
+  - tools/get_promotion_template_data.yaml
   - tools/get_quick_links.yaml
   - tools/get_recruiter_tasks.yaml
   - tools/get_recruitment_pipeline.yaml
   - tools/get_referral_jobs.yaml
   - tools/get_reimbursement_pending.yaml
+  - tools/get_rfr_published_on_referral_portal.yaml
+  - tools/get_role_based_goals.yaml
   - tools/get_salary_difference.yaml
+  - tools/get_selected_approver_goal_list.yaml
+  - tools/get_selected_employees_with_position.yaml
+  - tools/get_sep_details_by_emp_code.yaml
+  - tools/get_sep_status_lists.yaml
   - tools/get_separation_requests.yaml
+  - tools/get_shift_details.yaml
   - tools/get_shift_roster.yaml
+  - tools/get_shifts.yaml
+  - tools/get_shifts_roster.yaml
+  - tools/get_suitable_candidates.yaml
+  - tools/get_support_ticket_queue.yaml
   - tools/get_talent_profile.yaml
+  - tools/get_task_list_for_manager.yaml
+  - tools/get_tax_cal_methods.yaml
   - tools/get_team_360.yaml
   - tools/get_team_attendance.yaml
   - tools/get_team_details.yaml
@@ -94,14 +207,30 @@ tools:
   - tools/get_team_pms_status.yaml
   - tools/get_team_pulse.yaml
   - tools/get_team_pulse_risk_radar.yaml
+  - tools/get_ticket_catalogue.yaml
   - tools/get_training_needs.yaml
+  - tools/get_travel_expense_settings.yaml
   - tools/get_travel_expenses.yaml
+  - tools/get_travel_modes.yaml
   - tools/get_upcoming_anniversaries.yaml
+  - tools/get_users_programs.yaml
+  - tools/get_view_breakup.yaml
+  - tools/get_visible_leave.yaml
+  - tools/get_working_day.yaml
   - tools/list_available_letters.yaml
   - tools/list_my_support_tickets.yaml
   - tools/list_org_policies.yaml
+  - tools/list_report_types.yaml
+  - tools/mark_attendance.yaml
+  - tools/remind_approver.yaml
+  - tools/request_course_enrollment.yaml
+  - tools/request_letter.yaml
   - tools/search_employees.yaml
   - tools/search_knowledge_base.yaml
+  - tools/search_similar_tickets.yaml
+  - tools/submit_expense.yaml
+  - tools/submit_reimbursement_claim.yaml
+  - tools/submit_self_service_request.yaml
   - tools/view_courses.yaml
 extra:
   python:

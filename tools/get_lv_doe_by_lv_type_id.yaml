@@ -1,0 +1,22 @@
+identity:
+  name: "get_lv_doe_by_lv_type_id"
+  author: hono
+  label:
+    en_US: "Get Lv Doe By Lv Type ID"
+description:
+  human:
+    en_US: "Returns leave date of effect details for a specific leave type ID, useful for HR to manage leave policies."
+  llm: "Returns leave date of effect details for a specific leave type ID, useful for HR to manage leave policies."
+parameters:
+  - name: "lvtype_id"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "lvtype_id"
+    human_description:
+      en_US: "lvtype_id (Int)"
+    llm_description: "lvtype_id (Int)"
+extra:
+  python:
+    source: tools/get_lv_doe_by_lv_type_id.py

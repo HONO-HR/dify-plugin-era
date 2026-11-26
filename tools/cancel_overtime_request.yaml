@@ -1,0 +1,49 @@
+identity:
+  name: "cancel_overtime_request"
+  author: hono
+  label:
+    en_US: "Cancel Overtime Request"
+description:
+  human:
+    en_US: "Cancels one of the employee's own overtime requests, identified by request id or date; goes through a confirmation step."
+  llm: "Cancels one of the employee's own overtime requests, identified by request id or date; goes through a confirmation step."
+parameters:
+  - name: "request"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "request"
+    human_description:
+      en_US: "Which OT to cancel - the OT id from the chooser, or a date (YYYY-MM-DD). Omit to list."
+    llm_description: "Which OT to cancel - the OT id from the chooser, or a date (YYYY-MM-DD). Omit to list."
+  - name: "remarks"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "remarks"
+    human_description:
+      en_US: "Optional cancellation reason (sent to HONO as the action remark)."
+    llm_description: "Optional cancellation reason (sent to HONO as the action remark)."
+  - name: "confirm"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirm"
+    human_description:
+      en_US: "Pass \"true\" ONLY after the user explicitly confirmed the staged cancellation."
+    llm_description: "Pass \"true\" ONLY after the user explicitly confirmed the staged cancellation."
+  - name: "confirmToken"
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: "confirmToken"
+    human_description:
+      en_US: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+    llm_description: "Leave empty on the first call. Pass the token from the confirmation_required result, after the user confirms, to perform the action."
+extra:
+  python:
+    source: tools/cancel_overtime_request.py

@@ -1,0 +1,22 @@
+identity:
+  name: "get_active_perspective_master_list"
+  author: hono
+  label:
+    en_US: "Get Active Perspective Master List"
+description:
+  human:
+    en_US: "Returns active perspective master list filtered by flag and employee code for performance management."
+  llm: "Returns active perspective master list filtered by flag and employee code for performance management."
+parameters:
+  - name: "Flag"
+    type: number
+    required: false
+    form: llm
+    label:
+      en_US: "Flag"
+    human_description:
+      en_US: "Flag (Int)"
+    llm_description: "Flag (Int)"
+extra:
+  python:
+    source: tools/get_active_perspective_master_list.py
