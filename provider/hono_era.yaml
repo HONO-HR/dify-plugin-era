@@ -10,6 +10,30 @@ identity:
   tags:
     - business
     - productivity
+oauth_schema:
+  # The plugin registers itself with HONO, so the client form stays blank. Dify only
+  # starts OAuth once a workspace admin has saved this form once.
+  client_schema:
+    - name: note
+      type: text-input
+      required: false
+      label:
+        en_US: Nothing to fill in
+      help:
+        en_US: Leave blank and click Save. ERA by HONO registers itself with HONO; no client ID or secret is needed.
+  credentials_schema:
+    - name: access_token
+      type: secret-input
+      label:
+        en_US: Access token
+    - name: refresh_token
+      type: secret-input
+      label:
+        en_US: Refresh token
+    - name: client_id
+      type: text-input
+      label:
+        en_US: Client ID
 credentials_for_provider:
   mcp_url:
     type: text-input

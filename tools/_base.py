@@ -1,8 +1,10 @@
 """Shared MCP client for the ERA by HONO Dify plugin.
 
-Every tool is a thin call to the user's own ERA MCP endpoint (JSON-RPC
-`tools/call`, stateless Streamable HTTP). The API key is only ever sent to a
-HONO host, over HTTPS, and is never logged or echoed back.
+Every tool is a thin call to ERA's MCP endpoint (JSON-RPC `tools/call`,
+stateless Streamable HTTP). Two ways to sign in: "Sign in with HONO" (OAuth,
+tools/_oauth.py) uses the public connector, which finds the workspace from the
+token; an API key uses the user's own tenant MCP URL. Credentials are only ever
+sent to a HONO host, over HTTPS, and are never logged or echoed back.
 """
 import json
 import urllib.error
@@ -12,6 +14,7 @@ from collections.abc import Generator
 from typing import Any
 
 ALLOWED_HOST_SUFFIXES = ("hono.ai", "honohr.com")
+ERA_PUBLIC_MCP_URL = "https://mcp.hono.ai/era/mcp"
 TIMEOUT_SECONDS = 55  # the server caps every tool at 45s
 
 
@@ -33,8 +36,17 @@ def check_credentials(credentials: dict[str, Any]) -> tuple[str, str]:
     return url, key
 
 
+def resolve_endpoint(credentials: dict[str, Any]) -> tuple[str, str]:
+    token = str(credentials.get("access_token") or "").strip()
+    if token:
+        if not token.startswith("hno_oat_"):
+            raise EraMcpError("Sign in with HONO again: the stored sign-in is not a HONO token.")
+        return ERA_PUBLIC_MCP_URL, token
+    return check_credentials(credentials)
+
+
 def mcp_request(credentials: dict[str, Any], method: str, params: dict[str, Any]) -> dict[str, Any]:
-    url, key = check_credentials(credentials)
+    url, key = resolve_endpoint(credentials)
     body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode()
     req = urllib.request.Request(
         url,
@@ -51,7 +63,7 @@ def mcp_request(credentials: dict[str, Any], method: str, params: dict[str, Any]
             payload = json.loads(resp.read().decode())
     except urllib.error.HTTPError as e:
         hint = {
-            401: "the API key was rejected (revoked, expired or for another workspace)",
+            401: "the sign-in or API key was rejected (revoked, expired or for another workspace); sign in again",
             403: "MCP access is not enabled for this ERA workspace, or this IP is not allowed",
             429: "ERA rate limit reached, try again in a minute",
         }.get(e.code, "the ERA server returned an error")
